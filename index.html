@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keshani Rajkaran | Tech Portfolio</title>
+    <title>Keshani Rajkaran | Systems Architect & Full-Stack Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
     :root {
         /* Primary branding color palette for consistency across UI components */
@@ -12,10 +14,16 @@
         --glass: rgba(255, 255, 255, 0.05); 
     }
 
+    /* SMOOTH SCROLLING: Ensuring elegant navigation transitions */
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         background-color: var(--dark-bg); 
         color: white;                     
         margin: 0;                        
+        font-family: 'Inter', sans-serif;
         overflow-x: hidden; /* Prevents layout shifts during animations */
     }
 
@@ -31,7 +39,6 @@
         position: relative;               
     }
 
-    /* BRAND ANCHOR: Visual centerpiece with filtered depth */
     .hero-icon {
         font-size: 3rem;                  
         margin-bottom: 20px;              
@@ -47,22 +54,13 @@
 
     /* TYPEWRITER COMPONENT: Dynamic text-rendering engine styles */
     .typing-container {
-        font-family: 'Inter', sans-serif; 
         font-weight: 300;                 
         font-size: 1.5rem;                
         color: var(--gold);               
         letter-spacing: 5px;              
         margin: 20px 0;                   
-        min-height: 1.6em; /* Reserves vertical space to prevent content jumping */
+        min-height: 1.6em; 
     }
-
-    /* CURSOR ANIMATION: Visual feedback for active text generation */
-    .typing-text::after {
-        content: "|";                     
-        animation: blink 0.7s infinite;   
-    }
-
-    @keyframes blink { 50% { opacity: 0; } }
 
     /* NAVIGATION ARCHITECTURE: Call-to-action (CTA) button grid */
     .nav-menu {
@@ -71,14 +69,13 @@
         margin-top: 40px;                 
     }
 
-    /* GLASS-MORPHISM INTERFACE: Contemporary UI design implementation */
     .nav-btn {
         text-decoration: none;            
         color: white;                     
         padding: 12px 25px;               
         border: 1px solid var(--glass);   
         background: var(--glass);         
-        backdrop-filter: blur(10px); /* Hardware-accelerated background blur */
+        backdrop-filter: blur(10px); 
         font-size: 0.9rem;                
         letter-spacing: 1px;              
         transition: 0.4s ease-in-out;               
@@ -88,9 +85,87 @@
     .nav-btn:hover {
         border-color: var(--gold);        
         background: rgba(212, 175, 55, 0.1); 
-        transform: translateY(-3px); /* Interactive elevation feedback */
+        transform: translateY(-3px); 
     }
-</style>
+
+    /* SECTION ARCHITECTURE: Consistent spacing for the high-end look */
+    .section {
+        padding: 100px 10%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* ABOUT GRID: Balancing text with visual "Social Proof" */
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .about-text h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 30px;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #ccc;
+        margin-bottom: 20px;
+    }
+
+    /* HIGHLIGHT BOX: To emphasize UKZN & Internship background */
+    .highlight-card {
+        background: var(--glass);
+        border-left: 3px solid var(--gold);
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+    .highlight-card h4 {
+        color: var(--gold);
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* CARD COMPONENTS: Standardized for Stack and Projects */
+    .card {
+        background: var(--glass);
+        padding: 30px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-top: 20px;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        border-color: var(--gold);
+    }
+
+    .badge {
+        color: var(--gold);
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    /* ANIMATION: Subtle fade-in on scroll */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
+</head>
+<body>
 
 <header class="hero-container">
     <div class="hero-icon">💎</div> 
@@ -105,24 +180,79 @@
     </p>
 
     <nav class="nav-menu">
+        <a href="#about" class="nav-btn">About Me</a>
         <a href="#projects" class="nav-btn">My Projects</a>
         <a href="#education" class="nav-btn">My Education</a>
         <a href="#contact" class="nav-btn">Work With Me</a>
     </nav>
 </header>
 
+<section id="about" class="section reveal">
+    <div class="about-container">
+        <div class="about-text">
+            <h2>The Architect Behind the Systems</h2>
+            <p>
+                As a <strong>BCom Honors graduate from the University of KwaZulu-Natal (UKZN)</strong>, specialized in Information Systems Technology, I view technology as a lever for business scaling. My approach isn't just about code—it's about <strong>Strategic Alignment</strong>.
+            </p>
+            <p>
+                My background as an <strong>AI Forensic Analyst Intern</strong> honed my ability to dissect complex data structures and identify vulnerabilities with surgical precision. I don't just build; I secure and optimize.
+            </p>
+            <div class="highlight-card">
+                <h4>Why This Portfolio Exists</h4>
+                <p style="font-size: 0.95rem; margin:0;">
+                    This is a curated showcase of enterprise-grade solutions. It demonstrates my commitment to transforming manual complexities into automated, scalable, and secure ERP ecosystems that drive ROI.
+                </p>
+            </div>
+        </div>
+        
+        <div style="border: 1px solid var(--glass); padding: 40px; text-align: center; background: radial-gradient(circle, #1a1a1a, #0a0a0a);">
+            <div style="font-size: 5rem; margin-bottom: 20px;">🎓</div>
+            <h3 style="color: var(--gold); font-family: 'Playfair Display', serif;">UKZN Alumni</h3>
+            <p style="color: #888;">Specialization: Information Systems Technology</p>
+            <p style="color: #666; font-size: 0.9rem;">Expertise in Building Scalable Enterprise Applications</p>
+        </div>
+    </div>
+</section>
+
+<section id="stack" class="section reveal">
+    <h2 style="font-family: 'Playfair Display', serif; color: var(--gold);">🛠 Technical Stack</h2>
+    <div class="card">
+        <p><strong>Languages:</strong> C#, Python, JavaScript (React), SQL Server, HTML/CSS.</p>
+        <p><strong>Specializations:</strong> Systems Analysis (DFDs), Business Intelligence (BI), Role-Based Security (RBAC).</p>
+    </div>
+</section>
+
+<section id="projects" class="section reveal">
+    <h2 style="font-family: 'Playfair Display', serif; color: var(--gold);">💎 Featured Project: McKaylan Motor Engineering ERP</h2>
+    <div class="card">
+        <p><span class="badge">CONSULTING CASE STUDY</span></p>
+        <p>Led the digital transformation of manual workflows into a multi-tier C#/.NET ecosystem with 5 integrated sub-systems.</p>
+        <ul>
+            <li><strong>BI Engine:</strong> Engineered Dashboards with Smart Predictive Recommendations.</li>
+            <li><strong>Security:</strong> Implemented Temporal Logic and session-based validation.</li>
+        </ul>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-weight: bold;">View Technical Documentation & DFDs →</a>
+    </div>
+</section>
+
+<section id="contact" class="section reveal">
+    <h2 style="font-family: 'Playfair Display', serif; color: var(--gold);">🤝 Why Work With Me?</h2>
+    <p style="line-height: 1.8; color: #ccc;">
+        I am not just a developer; I am a <strong>Strategic Accountability Partner</strong>. I deliver "Discreet Wealth" energy through secure systems that position your business ahead of the curve. Whether you are a senior recruiter or a high-paying client, I provide the technical rigour and strategic foresight required for enterprise success.
+    </p>
+</section>
+
 <script>
-    /* Array containing the core professional pillars */
+    /* TYPEWRITER LOGIC */
     const text = ["I ANALYZE", "I DESIGN", "I BUILD"]; 
     let count = 0;   
     let index = 0;   
     let currentText = ""; 
     let letter = "";
 
-    /* Recursive function to handle the typing and resetting logic */
     (function type() {
         if (count === text.length) {
-            count = 0; /* Cycle back to the start of the array */
+            count = 0;
         }
         currentText = text[count]; 
         letter = currentText.slice(0, ++index); 
@@ -132,44 +262,25 @@
         if (letter.length === currentText.length) {
             count++; 
             index = 0; 
-            setTimeout(type, 2000); /* Dwell time after word completion */
+            setTimeout(type, 2000); 
         } else {
-            setTimeout(type, 150); /* Interval between character strokes */
+            setTimeout(type, 150); 
         }
     }());
+
+    /* SCROLL REVEAL LOGIC */
+    window.addEventListener('scroll', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        for (let i = 0; i < reveals.length; i++) {
+            const windowHeight = window.innerHeight;
+            const revealTop = reveals[i].getBoundingClientRect().top;
+            const revealPoint = 150;
+            if (revealTop < windowHeight - revealPoint) {
+                reveals[i].classList.add('active');
+            }
+        }
+    });
 </script>
-
-    <section class="section">
-        <h2>🛠 Technical Stack</h2>
-        <div class="card">
-            <p><strong>Languages:</strong> C#, Python, JavaScript (React), SQL Server, HTML/CSS.</p>
-            <p><strong>Specializations:</strong> Systems Analysis (DFDs), Business Intelligence (BI), Role-Based Security (RBAC).</p>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>💎 Featured Project: McKaylan Motor Engineering ERP</h2>
-        <div class="card">
-            <p><span class="badge">CONSULTING CASE STUDY</span></p>
-            <p>Led the digital transformation of manual workflows into a multi-tier C#/.NET ecosystem with 5 integrated sub-systems.</p>
-            <ul>
-                <li><strong>BI Engine:</strong> Engineered Dashboards with Smart Predictive Recommendations.</li>
-                <li><strong>Security:</strong> Implemented Temporal Logic and session-based validation.</li>
-            </ul>
-            <a href="LINK_TO_MCKAYLAN_README">View Technical Documentation & DFDs →</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>🤝 Why Work With Me?</h2>
-        <p>I am not just a developer; I am a <strong>Strategic Accountability Partner</strong> [cite: 2025-10-30]. I deliver "Discreet Wealth" energy through secure systems that position your business ahead of the curve [cite: 2025-11-05].</p>
-    </section>
-
-    <section class="section">
-        <h2>📈 Currently Working On</h2>
-        <p>I am currently focused on applying my systems design knowledge by building full-fledged, scalable enterprise modules.</p>
-    </section>
-</div>
 
 </body>
 </html>
