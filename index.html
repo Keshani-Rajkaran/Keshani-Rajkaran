@@ -19,7 +19,6 @@ body{
     color:white;
     margin:0;
     font-family:'Inter',sans-serif;
-    overflow-x:hidden;
 }
 .hero-container{
     height:80vh;
@@ -88,8 +87,53 @@ a{
     font-weight:bold;
 }
 a:hover{text-decoration:underline;}
+
+/* Project UI Gallery */
+.ui-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+.ui-card{
+    background:var(--glass);
+    border:1px solid rgba(255,255,255,.1);
+    overflow:hidden;
+    border-radius:12px;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+.ui-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 30px rgba(212,175,55,0.5);
+}
+.ui-card img{
+    width:100%;
+    display:block;
+}
+.ui-card p{
+    padding:10px;
+    font-size:0.9rem;
+    color:#ccc;
+    text-align:center;
+    margin:0;
+}
+
+/* Project links styling */
 .project-links{margin-top:15px;}
-.project-links a{display:inline-block;margin-right:15px;}
+.project-links a{
+    display:inline-block;
+    margin-right:15px;
+    padding:8px 15px;
+    background:rgba(212,175,55,0.1);
+    border:1px solid var(--gold);
+    border-radius:6px;
+    font-size:0.85rem;
+    transition:0.3s;
+}
+.project-links a:hover{
+    background:var(--gold);
+    color:#0a0a0a;
+}
 </style>
 </head>
 <body>
@@ -159,10 +203,24 @@ I am early in my career but highly motivated to contribute, learn, and grow with
 </div>
 
 <p><strong>UI Screenshots:</strong></p>
-<img src="https://github.com/user-attachments/assets/eaa7eaee-f03b-4af2-9d0e-e0c56109c796" width="100%" alt="Home Page"/>
-<img src="https://github.com/user-attachments/assets/9707512e-41ed-443e-a84b-329a1e688651" width="100%" alt="Book an Appointment"/>
-<img src="https://github.com/user-attachments/assets/0607231e-57bf-45a2-920d-42271f6ffbce" width="100%" alt="Manager Dashboard"/>
-<img src="https://github.com/user-attachments/assets/5a023fe0-0530-4e12-9959-c0e978060bd7" width="100%" alt="Seasonal Report"/>
+<div class="ui-gallery">
+    <div class="ui-card">
+        <img src="https://github.com/user-attachments/assets/eaa7eaee-f03b-4af2-9d0e-e0c56109c796" alt="Home Page"/>
+        <p>Home Page</p>
+    </div>
+    <div class="ui-card">
+        <img src="https://github.com/user-attachments/assets/9707512e-41ed-443e-a84b-329a1e688651" alt="Book Appointment"/>
+        <p>Book Appointment Page</p>
+    </div>
+    <div class="ui-card">
+        <img src="https://github.com/user-attachments/assets/0607231e-57bf-45a2-920d-42271f6ffbce" alt="Manager Dashboard"/>
+        <p>Manager Dashboard</p>
+    </div>
+    <div class="ui-card">
+        <img src="https://github.com/user-attachments/assets/5a023fe0-0530-4e12-9959-c0e978060bd7" alt="Seasonal Report"/>
+        <p>Seasonal Report Dashboard</p>
+    </div>
+</div>
 </div>
 </section>
 
