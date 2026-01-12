@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keshani Rajkaran | Information Systems Graduate</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -13,21 +12,24 @@
     --gold:#d4af37;
     --glass:rgba(255,255,255,0.05);
 }
+
 html{scroll-behavior:smooth;}
 body{
     background:var(--dark-bg);
     color:white;
     margin:0;
     font-family:'Inter',sans-serif;
+    overflow-x:hidden;
 }
 .hero-container{
-    height:85vh;
+    height:80vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
     background:radial-gradient(circle at top right,#1a1a1a,#0a0a0a);
+    padding:0 10%;
 }
 .hero-name{
     font-family:'Playfair Display',serif;
@@ -38,17 +40,19 @@ body{
     color:var(--gold);
     letter-spacing:4px;
     font-size:1.4rem;
-    margin:20px 0;
+    margin:15px 0;
 }
 .nav-menu{
     display:flex;
-    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
     margin-top:30px;
 }
 .nav-btn{
     text-decoration:none;
     color:white;
-    padding:12px 25px;
+    padding:10px 22px;
     border:1px solid var(--glass);
     background:var(--glass);
     backdrop-filter:blur(10px);
@@ -62,39 +66,47 @@ body{
     transform:translateY(-3px);
 }
 .section{
-    padding:100px 10%;
+    padding:60px 10%;
     max-width:1200px;
     margin:auto;
 }
 .card{
     background:var(--glass);
-    padding:30px;
+    padding:25px;
     border:1px solid rgba(255,255,255,.1);
     margin-top:20px;
 }
 h2{
     font-family:'Playfair Display',serif;
     color:var(--gold);
+    margin-bottom:20px;
 }
+ul{margin-left:20px;}
+a{
+    color:var(--gold);
+    text-decoration:none;
+    font-weight:bold;
+}
+a:hover{text-decoration:underline;}
+.project-links{margin-top:15px;}
+.project-links a{display:inline-block;margin-right:15px;}
 </style>
 </head>
-
 <body>
 
 <header class="hero-container">
-    <h1 class="hero-name">KESHANI RAJKARAN</h1>
-    <div class="typing-container"><span id="typewriter"></span></div>
-    <p style="color:#aaa;max-width:700px;">
-        Information Systems Graduate | Business Systems & Consulting-Oriented Developer
-    </p>
-
-    <nav class="nav-menu">
-        <a href="#about" class="nav-btn">About</a>
-        <a href="#education" class="nav-btn">Education</a>
-        <a href="#projects" class="nav-btn">Projects</a>
-        <a href="#skills" class="nav-btn">Skills</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-    </nav>
+<h1 class="hero-name">KESHANI RAJKARAN</h1>
+<div class="typing-container"><span id="typewriter"></span></div>
+<p style="color:#aaa; max-width:700px; line-height:1.6;">
+Information Systems Graduate | Passionate about solving business problems, improving efficiency, and creating scalable digital systems.
+</p>
+<nav class="nav-menu">
+    <a href="#about" class="nav-btn">About</a>
+    <a href="#education" class="nav-btn">Education</a>
+    <a href="#projects" class="nav-btn">Projects</a>
+    <a href="#skills" class="nav-btn">Skills</a>
+    <a href="#contact" class="nav-btn">Contact</a>
+</nav>
 </header>
 
 <!-- ABOUT -->
@@ -102,13 +114,13 @@ h2{
 <h2>About Me</h2>
 <div class="card">
 <p>
-I am an Information Systems graduate with a strong interest in solving business problems through technology, data, and structured thinking.
+I am an Information Systems graduate with a consulting mindset: I enjoy understanding how businesses operate, identifying inefficiencies, and building systems that improve decision-making and workflow.
 </p>
 <p>
-I enjoy working on problems where processes are unclear, information is fragmented, and decisions are made without visibility — and turning those into systems that are organised, measurable, and reliable.
+I have hands-on experience with scheduling systems, role-based access, reporting dashboards, and database-driven applications. My approach combines structured thinking, problem-solving, and attention to detail, ensuring solutions are reliable and measurable.
 </p>
 <p>
-Through academic and practical projects, I have worked with scheduling systems, databases, reporting dashboards, and role-based access control. I am motivated by environments where I can learn quickly, contribute meaningfully, and grow into a strong problem-solver.
+I am early in my career but highly motivated to contribute, learn, and grow within teams that value efficiency, strategy, and impact.
 </p>
 </div>
 </section>
@@ -125,48 +137,54 @@ Through academic and practical projects, I have worked with scheduling systems, 
 
 <!-- PROJECT -->
 <section id="projects" class="section">
-<h2>Featured Project</h2>
-
+<h2>Featured Project: McKaylan Motor Engineering ERP</h2>
 <div class="card">
-<p><strong>McKaylan Motor Engineering – Operations & Scheduling ERP</strong></p>
-<p>
-The business previously relied on paper-based booking systems and physical filing, which caused double bookings, lost records, and no visibility into staff workload.
-</p>
-<p>
-I designed and built a web-based ERP system that unified customer booking, technician scheduling, staff management, and business reporting.
-</p>
+<p><strong>Executive Summary:</strong> Replaced a fully manual scheduling and filing system with a centralized, web-based ERP system that manages appointments, staff, and reporting.</p>
+
+<p><strong>Impact & Achievements:</strong></p>
 <ul>
 <li>Reduced administrative workload by ~60%</li>
-<li>Eliminated double-booking through availability-based scheduling</li>
-<li>Enabled customer self-service booking and profile management</li>
-<li>Provided management with seasonal, staff, and scheduling reports</li>
+<li>Eliminated double-bookings via intelligent scheduling</li>
+<li>Improved customer experience with online booking and profile management</li>
+<li>Enabled managers to generate seasonal, staff, customer, and scheduling reports for better decision-making</li>
+<li>Implemented role-based access control to protect sensitive data</li>
 </ul>
-<p>
-This system replaced manual operations with a controlled, scalable digital workflow.
-</p>
+
+<p><strong>Technical Stack:</strong> C#, .NET, SQL Server, HTML/CSS, JavaScript</p>
+
+<div class="project-links">
+<a href="https://github.com/YourUsername/McKaylanERP" target="_blank">🔗 GitHub - Full Source Code</a>
+<a href="https://youtu.be/YourDemoVideoLink" target="_blank">▶ Demo Video - Walkthrough</a>
+<a href="https://github.com/YourUsername/McKaylanERP#system-architecture" target="_blank">📊 Architecture & DFDs</a>
+</div>
+
+<p><strong>UI Screenshots:</strong></p>
+<img src="https://github.com/user-attachments/assets/eaa7eaee-f03b-4af2-9d0e-e0c56109c796" width="100%" alt="Home Page"/>
+<img src="https://github.com/user-attachments/assets/9707512e-41ed-443e-a84b-329a1e688651" width="100%" alt="Book an Appointment"/>
+<img src="https://github.com/user-attachments/assets/0607231e-57bf-45a2-920d-42271f6ffbce" width="100%" alt="Manager Dashboard"/>
+<img src="https://github.com/user-attachments/assets/5a023fe0-0530-4e12-9959-c0e978060bd7" width="100%" alt="Seasonal Report"/>
 </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-<h2>Technical Stack & Skills</h2>
+<h2>Technical Skills & Competencies</h2>
 <div class="card">
-<p><strong>Languages & Frameworks:</strong> C#, .NET, Python, JavaScript, HTML, CSS</p>
-<p><strong>Databases:</strong> SQL Server, relational database design</p>
-<p><strong>Systems:</strong> Scheduling systems, RBAC, business rule validation, reporting dashboards</p>
-<p><strong>Methodology:</strong> Systems analysis, data-flow modelling, Agile, business process mapping</p>
+<p><strong>Languages & Frameworks:</strong> C#, .NET, Python, JavaScript, HTML/CSS</p>
+<p><strong>Databases:</strong> SQL Server, relational database design, data integrity</p>
+<p><strong>Systems & Methods:</strong> Scheduling & workflow systems, role-based access, reporting dashboards, business intelligence</p>
+<p><strong>Core Competencies:</strong> Problem solving, process improvement, structured thinking, consulting mindset, system analysis & design, Agile methodology</p>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-<h2>Contact</h2>
+<h2>Contact Me</h2>
 <div class="card">
-<p>
-If you are looking for a graduate who understands how systems support real business operations, I would love to connect.
-</p>
+<p>If you are looking for a graduate who can solve problems, drive efficiency, and contribute to high-impact projects, I would love to connect.</p>
 <p><strong>Email:</strong> yourname@email.com</p>
-<p><strong>LinkedIn:</strong> linkedin.com/in/yourprofile</p>
+<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+<p><strong>GitHub:</strong> <a href="https://github.com/YourUsername" target="_blank">github.com/YourUsername</a></p>
 </div>
 </section>
 
