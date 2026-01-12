@@ -11,205 +11,156 @@
             --gold: #d4af37;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(212, 175, 55, 0.2);
+            --glow: rgba(212, 175, 55, 0.6);
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: white; overflow-x: hidden; }
 
-        /* HEADER & HERO */
-        .hero {
+        /* THE COMMAND CENTER WRAPPER */
+        .hero-wrapper {
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: radial-gradient(circle at center, #111, #000);
+        }
+
+        .command-center {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 50px;
+            max-width: 850px;
+            width: 90%;
             text-align: center;
-            background: radial-gradient(circle at top right, #1a1a1a, #050505);
-            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            position: relative;
         }
 
-        .hero h1 { 
+        /* IDENTITY SECTION */
+        h1 { 
             font-family: 'Playfair Display'; 
-            font-size: clamp(3rem, 8vw, 5rem); 
+            font-size: 3.5rem; 
             margin: 0; 
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
-
         .gold-text { color: var(--gold); }
 
         .typewriter-box {
-            font-size: 1.5rem;
-            color: var(--gold);
-            letter-spacing: 4px;
-            margin: 20px 0;
-            min-height: 1.2em;
-            font-weight: 300;
-        }
-
-        /* NAVIGATION MENU */
-        .nav-container { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; justify-content: center; }
-        .nav-link {
-            padding: 12px 25px;
-            border: 1px solid var(--border);
-            background: var(--glass);
-            color: white;
-            text-decoration: none;
-            backdrop-filter: blur(10px);
-            transition: 0.4s;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-        .nav-link:hover { border-color: var(--gold); transform: translateY(-5px); background: rgba(212, 175, 55, 0.1); }
-
-        /* SECTION STYLING */
-        .section-header {
-            font-family: 'Playfair Display';
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .content-section { padding: 80px 10%; max-width: 1400px; margin: auto; }
-
-        /* SPLIT SECTION (Icon Right, Text Left) */
-        .split-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 4px;
-            line-height: 1.8;
             font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin: 15px 0;
+            min-height: 1.2em;
+            text-transform: uppercase;
         }
 
-        .animated-icon {
-            font-size: 8rem;
-            text-align: center;
-            animation: float 4s ease-in-out infinite;
+        /* BIO SECTION */
+        .bio-box {
+            margin: 25px 0;
+            line-height: 1.8;
+            color: #ccc;
+            font-size: 1rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        /* INTERACTIVE LIGHTBULB & NAV */
+        .nav-zone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
         }
 
-        /* TECH STACK GRID */
-        .stack-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        .lightbulb {
+            font-size: 2.5rem;
+            filter: grayscale(1);
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
-        .stack-item {
-            background: var(--glass);
+
+        .lightbulb.lit {
+            filter: grayscale(0) drop-shadow(0 0 15px var(--gold));
+            transform: scale(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            padding: 10px 20px;
             border: 1px solid var(--border);
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .stack-item:hover { border-color: var(--gold); background: rgba(255,255,255,0.05); }
-        .stack-item h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; }
-
-        /* REVEAL TRANSITIONS */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .cta-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: var(--gold);
-            color: black;
-            font-weight: bold;
+            background: transparent;
+            color: #888;
             text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: 0.3s;
         }
-        .cta-btn:hover { background: white; transform: scale(1.05); }
+
+        .nav-item:hover, .nav-item.active {
+            border-color: var(--gold);
+            color: white;
+            background: rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+        }
+
+        /* SECTIONS FOR NAVIGATION DEMO */
+        .content-block {
+            height: 100vh;
+            padding: 100px 10%;
+            border-top: 1px solid var(--border);
+        }
     </style>
 </head>
 <body>
 
-<section class="hero">
-    <h1>KESHANI <span class="gold-text">RAJKARAN</span></h1>
-    <div class="typewriter-box"><span id="typewriter"></span></div>
-    <p style="color: #888; max-width: 600px;">Systems Development Specialist | Strategic Logic & ERP Solutions</p>
-    <div class="nav-container">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#stack" class="nav-link">Tech Stack</a>
-        <a href="#contact" class="nav-link">Contact</a>
-    </div>
-</section>
+<section class="hero-wrapper" id="home">
+    <div class="command-center">
+        <h1>KESHANI <span class="gold-text">RAJKARAN</span></h1>
+        
+        <div class="typewriter-box">
+            <span id="typewriter"></span>
+        </div>
 
-<section id="about" class="content-section reveal">
-    <h2 class="section-header">01. About Me</h2>
-    <div class="split-layout">
-        <div class="about-card">
-            <p>I specialize in bridging the gap between business needs and technical execution. My approach is collaborative and solution-oriented—I believe that the best systems are built by <strong>listening first and coding second.</strong></p>
-            <p>I am easy-going but high-performing, focusing on creating frictionless experiences for users. Whether I'm building a complex ERP or a database module, my goal is to deliver a difference that actually matters to your business operations.</p>
+        <div class="bio-box">
+            Hello World. I am Keshani, a <strong>Systems Development Specialist</strong> graduating from UKZN in May 2026. 
+            I am passionate about engineering digital transformations that turn manual friction into streamlined automation. 
+            My goal is to help your business achieve measurable impact—increasing revenue, optimizing processes, and elevating customer retention through strategic technical logic.
         </div>
-        <div class="animated-icon">💻</div>
-    </div>
-</section>
 
-<section id="experience" class="content-section reveal">
-    <h2 class="section-header">02. Experience</h2>
-    <div class="stack-grid">
-        <div class="stack-item">
-            <h4>AI Forensic Analyst</h4>
-            <p>Internship specializing in data structure dissection and security logic.</p>
-        </div>
-        <div class="stack-item">
-            <h4>BCom IS (UKZN)</h4>
-            <p>Foundational expertise in Enterprise Systems and Systems Analysis.</p>
-        </div>
-        <div class="stack-item">
-            <h4>91% Distinction</h4>
-            <p>Top-tier performance at the FNB App Academy in System Development.</p>
+        <div class="nav-zone">
+            <div id="bulb" class="lightbulb">💡</div>
+            <div class="nav-links">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="projects" class="content-section reveal">
-    <h2 class="section-header">03. Project Showcase</h2>
-    <div class="about-card" style="border-left: 4px solid var(--gold);">
-        <h3>McKaylan Motor Engineering ERP</h3>
-        <p>A multi-tier C# ecosystem that digitized manual paper workflows into an automated scheduling and reporting powerhouse.</p>
-        <a href="#" style="color: var(--gold); font-weight: bold;">VIEW REPOSITORY →</a>
-    </div>
-</section>
-
-<section id="stack" class="content-section reveal">
-    <h2 class="section-header">04. Technical Proficiency</h2>
-    <div class="stack-grid">
-        <div class="stack-item"><h4>Languages</h4><p>C#, SQL, JavaScript, Python</p></div>
-        <div class="stack-item"><h4>Frameworks</h4><p>.NET Core, React, HTML5/CSS3</p></div>
-        <div class="stack-item"><h4>Tools</h4><p>SQL Server, Git, BI Dashboards</p></div>
-        <div class="stack-item"><h4>Analysis</h4><p>DFDs, ERDs, Logic Mapping</p></div>
-    </div>
-</section>
-
-<section id="contact" class="content-section reveal" style="text-align: center;">
-    <h2 class="section-header">05. Let's Connect</h2>
-    <p style="font-size: 1.2rem; color: #ccc;">I am ready to contribute to your business and create a difference that matters.</p>
-    <a href="mailto:rajkaran.keshanir@gmail.com" class="cta-btn">SEND AN ENQUIRY</a>
-</section>
+<section id="about" class="content-block"><h2>01. Strategic Profile</h2></section>
+<section id="experience" class="content-block"><h2>02. Professional History</h2></section>
+<section id="projects" class="content-block"><h2>03. Systems Portfolio</h2></section>
+<section id="contact" class="content-block"><h2>04. Connect</h2></section>
 
 <script>
     /* TYPEWRITER ANIMATION */
-    const text = ["I ANALYZE", "I DESIGN", "I BUILD", "I SCALE"];
+    const textArr = ["I ANALYZE", "I DESIGN", "I BUILD", "I OPTIMIZE"];
     let count = 0, index = 0, currentText = "", letter = "";
     (function type() {
-        if (count === text.length) count = 0;
-        currentText = text[count];
+        if (count === textArr.length) count = 0;
+        currentText = textArr[count];
         letter = currentText.slice(0, ++index);
         document.querySelector("#typewriter").textContent = letter;
         if (letter.length === currentText.length) {
@@ -219,13 +170,36 @@
         }
     }());
 
-    /* SCROLL REVEAL */
+    /* LIGHTBULB & NAV LOGIC */
+    const bulb = document.getElementById('bulb');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove active state from all
+            navItems.forEach(i => i.classList.remove('active'));
+            // Add to clicked
+            item.classList.add('active');
+            
+            // Trigger Lightbulb "Flash"
+            bulb.classList.add('lit');
+            setTimeout(() => {
+                bulb.classList.remove('lit');
+            }, 800);
+        });
+    });
+
+    // Auto-light when scrolling into sections
     window.addEventListener('scroll', () => {
-        const reveals = document.querySelectorAll('.reveal');
-        reveals.forEach(reveal => {
-            const windowHeight = window.innerHeight;
-            const revealTop = reveal.getBoundingClientRect().top;
-            if (revealTop < windowHeight - 100) reveal.classList.add('active');
+        let fromTop = window.scrollY + 100;
+        navItems.forEach(link => {
+            let section = document.querySelector(link.hash);
+            if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                link.classList.add('active');
+                bulb.classList.add('lit');
+            } else {
+                link.classList.remove('active');
+            }
         });
     });
 </script>
