@@ -11,8 +11,8 @@
 :root {
     --bg: #050505;
     --gold: #d4af37;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(212, 175, 55, 0.2);
+    --glass: rgba(255, 255, 255, 0.04);
+    --border: rgba(212, 175, 55, 0.25);
 }
 
 * { box-sizing: border-box; }
@@ -23,7 +23,6 @@ body {
     color: white;
 }
 
-/* Flicker */
 @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
         opacity: 1;
@@ -41,27 +40,27 @@ body {
 }
 
 .section {
-    padding: 80px 10%;
+    padding: 90px 10%;
     max-width: 1400px;
     margin: auto;
 }
 
-/* Layout */
 .project-container {
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
-    gap: 60px;
+    gap: 70px;
     margin-top: 40px;
 }
 
 .project-details h3 {
     font-family: 'Playfair Display';
-    font-size: 2.2rem;
+    font-size: 2.3rem;
     color: var(--gold);
+    margin-top: 10px;
 }
 
 .sub-heading {
-    margin-top: 35px;
+    margin-top: 40px;
     font-size: 1.2rem;
     color: var(--gold);
     border-bottom: 1px solid var(--border);
@@ -75,26 +74,25 @@ ul {
 
 li {
     margin: 15px 0;
-    line-height: 1.7;
+    line-height: 1.8;
     color: #ccc;
 }
 
 strong { color: white; }
 
-/* Sidebar */
 .resource-sidebar {
     position: sticky;
-    top: 80px;
+    top: 90px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
 }
 
 .resource-card {
     background: var(--glass);
     border: 1px solid var(--border);
-    padding: 40px;
-    border-radius: 10px;
+    padding: 45px;
+    border-radius: 12px;
     text-align: center;
     text-decoration: none;
     color: white;
@@ -103,70 +101,75 @@ strong { color: white; }
 
 .resource-card:hover {
     border-color: var(--gold);
-    background: rgba(212,175,55,0.05);
-    transform: translateY(-5px);
+    background: rgba(212,175,55,0.06);
+    transform: translateY(-6px);
 }
 
 .resource-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<section id="projects" class="section">
+<section class="section">
 
-    <div style="text-align:center;margin-bottom:60px;">
-        <h2 class="title-flicker" style="font-family:'Playfair Display';font-size:3rem;">My Projects 🛠️</h2>
+    <div style="text-align:center;margin-bottom:70px;">
+        <h2 class="title-flicker" style="font-family:'Playfair Display';font-size:3rem;">Systems Portfolio</h2>
+        <p style="color:#aaa;">Real business systems engineered for operational impact</p>
     </div>
 
     <div class="project-container">
 
         <div class="project-details">
 
-            <h4 style="color:var(--gold);letter-spacing:3px;">PROJECT 1</h4>
-            <h3>ERP Scheduling System – McKaylan Motor Engineering</h3>
+            <h4 style="color:var(--gold);letter-spacing:4px;">PROJECT 01</h4>
+            <h3>Enterprise ERP & Scheduling System</h3>
+
+            <p>
+                <strong>Client:</strong> McKaylan Motor Engineering C.C<br>
+                <strong>Context:</strong> Automotive engineering & service operations
+            </p>
 
             <p>
                 <strong>The Business Problem:</strong><br>
-                McKaylan Motor Engineering relied on paper diaries, phone calls, and in-person visits to manage bookings. 
-                Customers had to physically go to the workshop just to request appointments, creating friction, lost opportunities, 
-                and limited after-hours enquiries. This manual process caused double-bookings, unrecorded jobs, and serious revenue leakage.
+                The company relied on paper diaries, phone calls, and in-person visits to manage customer bookings.  
+                Customers had to physically go to the workshop just to request an appointment. This caused friction, limited after-hours enquiries, double-bookings, lost jobs, and serious revenue leakage.
             </p>
 
-            <div class="sub-heading">Multi-Role Enterprise Architecture</div>
+            <div class="sub-heading">Digital Transformation Solution</div>
             <ul>
-                <li><strong>Customer Self-Service Portal:</strong> Customers can create accounts, request bookings remotely, and view their confirmed appointments from home. This turned the business into a 24/7 digital storefront and attracted new customers.</li>
+                <li><strong>Customer Self-Service Portal:</strong> Customers create accounts, request bookings from home, and view appointment confirmations in real-time. This turned the business into a 24/7 digital storefront and attracted new customers.</li>
 
-                <li><strong>Admin Operations Console:</strong> Admins can create, edit, and delete appointments, manage customer records, and access report history to maintain operational accuracy.</li>
+                <li><strong>Admin Operations Console:</strong> Admin users can create, edit and delete appointments, manage customer records, and access report history to maintain operational accuracy.</li>
 
-                <li><strong>Manager Dashboard:</strong> Managers generate staff and seasonal performance reports, analyze revenue trends, and assign technicians to jobs for optimized workforce deployment.</li>
+                <li><strong>Manager Intelligence Dashboard:</strong> Managers generate staff, seasonal and revenue reports, assign technicians to jobs, and optimize workforce utilization.</li>
 
-                <li><strong>Staff Management System:</strong> Managers can add, edit, and manage technicians and allocate them to specific appointments.</li>
+                <li><strong>Staff & Job Allocation Engine:</strong> Technicians are assigned to appointments based on workload and availability.</li>
             </ul>
 
-            <div class="sub-heading">Key Engineering Challenges Solved</div>
+            <div class="sub-heading">Core Engineering Challenges Solved</div>
             <ul>
-                <li><strong>Role-Based Access Control (RBAC):</strong> Secure login layers ensure each user only sees what they are authorized to access.</li>
-                <li><strong>Centralized Relational Database:</strong> Prevents double-bookings and maintains consistent records across all subsystems.</li>
-                <li><strong>Business Intelligence Engine:</strong> Transforms raw bookings into actionable management insights.</li>
-                <li><strong>UX Architecture:</strong> Clean flows between customer booking, admin control, and manager oversight.</li>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Secure separation of Customer, Admin, and Manager privileges.</li>
+                <li><strong>Centralized SQL Data Model:</strong> Eliminates double-bookings and ensures system-wide data consistency.</li>
+                <li><strong>Business Intelligence Layer:</strong> Converts raw operational data into actionable management insights.</li>
+                <li><strong>Process Automation:</strong> Manual paper workflows replaced with validated digital transactions.</li>
             </ul>
 
-            <div class="sub-heading">Security & Integrity</div>
+            <div class="sub-heading">Security & Data Integrity</div>
             <ul>
-                <li>Encrypted authentication & session control</li>
+                <li>Encrypted authentication & session management</li>
                 <li>Server-side input validation</li>
                 <li>Unauthorized access detection</li>
-                <li>Future-only booking logic protects historical data</li>
+                <li>Temporal logic prevents historical data manipulation</li>
             </ul>
 
             <div class="sub-heading">Business Impact</div>
             <p>
-                The system achieved <strong>100% elimination of double-bookings</strong>, enabled remote customer bookings, and gave management real-time control over staff, revenue, and operations.
+                The system achieved <strong>100% elimination of double-bookings</strong>, enabled remote customer onboarding, captured every billable job, and gave management real-time visibility into staff performance and revenue.
             </p>
 
         </div>
@@ -174,18 +177,13 @@ strong { color: white; }
         <div class="resource-sidebar">
             <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" class="resource-card">
                 <span class="resource-icon">📂</span>
-                <strong>Source Code</strong>
-                <p style="color:#888;font-size:0.8rem;">View full system repository</p>
-            </a>
-
-            <a href="gallery.html" class="resource-card">
-                <span class="resource-icon">🖼️</span>
-                <strong>UI & System Diagrams</strong>
-                <p style="color:#888;font-size:0.8rem;">Screens, DFDs & Architecture</p>
+                <strong>View Source Code</strong>
+                <p style="color:#888;font-size:0.85rem;">Full ERP system repository</p>
             </a>
         </div>
 
     </div>
+
 </section>
 
 </body>
