@@ -1,190 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keshani Rajkaran | Systems Development Specialist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keshani Rajkaran | Systems Development Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --gold: #d4af37;
+            --glass: rgba(255, 255, 255, 0.04);
+            --border: rgba(212, 175, 55, 0.25);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: white; overflow-x: hidden; }
 
-<style>
-:root {
-    --bg: #050505;
-    --gold: #d4af37;
-    --glass: rgba(255, 255, 255, 0.04);
-    --border: rgba(212, 175, 55, 0.25);
-}
+        /* HERO SECTION */
+        .hero-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #111, #000);
+        }
 
-* { box-sizing: border-box; }
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: white;
-}
+        .command-center {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 50px;
+            max-width: 850px;
+            width: 90%;
+            text-align: center;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
 
-@keyframes flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 10px var(--gold));
-    }
-    20%, 24%, 55% {
-        opacity: 0.3;
-        filter: none;
-    }
-}
+        .avatar-box {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            background: #1a1a1a;
+        }
+        .avatar-box img { width: 100%; height: 100%; object-fit: cover; }
 
-.title-flicker {
-    animation: flicker 6s infinite;
-    color: var(--gold);
-}
+        /* ANIMATIONS */
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; filter: drop-shadow(0 0 10px var(--gold)); }
+            20%, 24%, 55% { opacity: 0.3; filter: none; }
+        }
 
-.section {
-    padding: 90px 10%;
-    max-width: 1400px;
-    margin: auto;
-}
+        .bulb-flicker { font-size: 2.5rem; animation: flicker 3s infinite; display: inline-block; cursor: pointer; }
+        .title-flicker { animation: flicker 6s infinite; color: var(--gold); }
 
-.project-container {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 70px;
-    margin-top: 40px;
-}
+        .typewriter-box {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin: 15px 0;
+            min-height: 1.2em;
+            text-transform: uppercase;
+        }
 
-.project-details h3 {
-    font-family: 'Playfair Display';
-    font-size: 2.3rem;
-    color: var(--gold);
-    margin-top: 10px;
-}
+        /* PROJECT SECTION */
+        .section { padding: 90px 10%; max-width: 1400px; margin: auto; }
+        
+        .project-container {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 70px;
+            margin-top: 40px;
+        }
 
-.sub-heading {
-    margin-top: 40px;
-    font-size: 1.2rem;
-    color: var(--gold);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 8px;
-}
+        .project-details h3 { font-family: 'Playfair Display'; font-size: 2.3rem; color: var(--gold); margin-top: 10px; }
+        .sub-heading { margin-top: 40px; font-size: 1.2rem; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: bold; }
+        
+        ul { list-style: none; padding: 0; }
+        li { margin: 15px 0; line-height: 1.8; color: #ccc; }
+        strong { color: white; }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
+        /* RESOURCE SIDEBAR */
+        .resource-sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 30px; }
+        .resource-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 45px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: 0.4s;
+        }
+        .resource-card:hover { border-color: var(--gold); background: rgba(212,175,55,0.06); transform: translateY(-6px); }
+        .resource-icon { font-size: 3.5rem; display: block; margin-bottom: 20px; }
 
-li {
-    margin: 15px 0;
-    line-height: 1.8;
-    color: #ccc;
-}
-
-strong { color: white; }
-
-.resource-sidebar {
-    position: sticky;
-    top: 90px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.resource-card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 45px;
-    border-radius: 12px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    transition: 0.4s;
-}
-
-.resource-card:hover {
-    border-color: var(--gold);
-    background: rgba(212,175,55,0.06);
-    transform: translateY(-6px);
-}
-
-.resource-icon {
-    font-size: 3.5rem;
-    display: block;
-    margin-bottom: 20px;
-}
-</style>
+        .nav-link {
+            padding: 10px 20px;
+            border: 1px solid var(--border);
+            color: #888;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--gold); border-color: var(--gold); }
+    </style>
 </head>
-
 <body>
 
-<section class="section">
+<section class="hero-wrapper">
+    <div class="command-center">
+        <div class="avatar-box">
+            <img src="your-avatar.png" alt="Keshani Rajkaran">
+        </div>
+        <h1 style="font-family:'Playfair Display'; font-size: 3.5rem;">KESHANI <span style="color:var(--gold);">RAJKARAN</span></h1>
+        
+        <div class="typewriter-box">
+            <span id="typewriter"></span>
+        </div>
 
-    <div style="text-align:center;margin-bottom:70px;">
-        <h2 class="title-flicker" style="font-family:'Playfair Display';font-size:3rem;">Systems Portfolio</h2>
+        <p style="color:#ccc; line-height: 1.8; max-width: 650px; margin: 20px auto;">
+            Hello World. I am Keshani. I am a <strong>Systems Development Specialist</strong> graduating from UKZN in May 2026. 
+            I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue.
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 30px;">
+            <div class="bulb-flicker" id="bulb">💡</div>
+            <nav style="display: flex; gap: 15px;">
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div style="text-align:center; margin-bottom:70px;">
+        <h2 class="title-flicker" style="font-family:'Playfair Display'; font-size:3rem;">My Projects 🛠️</h2>
         <p style="color:#aaa;">Real business systems engineered for operational impact</p>
     </div>
 
     <div class="project-container">
-
         <div class="project-details">
+            <h4 style="color:var(--gold); letter-spacing:4px; margin:0;">PROJECT 01</h4>
+            <h3>ERP Scheduling System for Mckaylan Motor Engineering C.C</h3>
 
-            <h4 style="color:var(--gold);letter-spacing:4px;">PROJECT 01</h4>
-            <h3>Enterprise ERP & Scheduling System</h3>
-
-            <p>
-                <strong>Client:</strong> McKaylan Motor Engineering C.C<br>
-                <strong>Context:</strong> Automotive engineering & service operations
+            <p><strong>The Business Problem:</strong><br>
+                The company relied on manual paper diaries and fragmented spreadsheets, leading to double-bookings and lost revenue. Customers were required to physically visit the workshop for appointments, causing friction and limiting growth.
             </p>
 
-            <p>
-                <strong>The Business Problem:</strong><br>
-                The company relied on paper diaries, phone calls, and in-person visits to manage customer bookings.  
-                Customers had to physically go to the workshop just to request an appointment. This caused friction, limited after-hours enquiries, double-bookings, lost jobs, and serious revenue leakage.
-            </p>
-
-            <div class="sub-heading">Digital Transformation Solution</div>
+            <div class="sub-heading">Key Complexities & Engineered Solutions</div>
             <ul>
-                <li><strong>Customer Self-Service Portal:</strong> Customers create accounts, request bookings from home, and view appointment confirmations in real-time. This turned the business into a 24/7 digital storefront and attracted new customers.</li>
-
-                <li><strong>Admin Operations Console:</strong> Admin users can create, edit and delete appointments, manage customer records, and access report history to maintain operational accuracy.</li>
-
-                <li><strong>Manager Intelligence Dashboard:</strong> Managers generate staff, seasonal and revenue reports, assign technicians to jobs, and optimize workforce utilization.</li>
-
-                <li><strong>Staff & Job Allocation Engine:</strong> Technicians are assigned to appointments based on workload and availability.</li>
+                <li>◻ <strong>Advanced Authentication (RBAC):</strong> I implemented a hierarchical login system. unauthorized attempts trigger an "Access Blocked" protocol to protect sensitive client data.</li>
+                <li>◻ <strong>Smart Business Intelligence (BI):</strong> Manager dashboards generate seasonal, staff, and appointment reports with visual charts and smart strategy recommendations.</li>
+                <li>◻ <strong>Relational Data Integrity:</strong> Centralized SQL database managing five integrated sub-systems with validation to prevent double-bookings.</li>
+                <li>◻ <strong>User Experience (UX) Architecture:</strong> Logical sitemap flow from landing pages to functional zones like Quote Requests and Job Tracking.</li>
             </ul>
 
-            <div class="sub-heading">Core Engineering Challenges Solved</div>
+            <div class="sub-heading">System Security</div>
             <ul>
-                <li><strong>Role-Based Access Control (RBAC):</strong> Secure separation of Customer, Admin, and Manager privileges.</li>
-                <li><strong>Centralized SQL Data Model:</strong> Eliminates double-bookings and ensures system-wide data consistency.</li>
-                <li><strong>Business Intelligence Layer:</strong> Converts raw operational data into actionable management insights.</li>
-                <li><strong>Process Automation:</strong> Manual paper workflows replaced with validated digital transactions.</li>
+                <li>◻ <strong>Security-First Mindset:</strong> Built to protect sensitive client and business data.</li>
+                <li>◻ <strong>Encrypted Authentication:</strong> Secure session management ensuring dashboard privacy.</li>
+                <li>◻ <strong>Automated Session Termination:</strong> Logic detects unauthorized attempts and triggers safety protocols.</li>
+                <li>◻ <strong>Temporal Logic Security:</strong> Prevents alteration of historical record integrity while restricting future bookings.</li>
             </ul>
 
-            <div class="sub-heading">Security & Data Integrity</div>
-            <ul>
-                <li>Encrypted authentication & session management</li>
-                <li>Server-side input validation</li>
-                <li>Unauthorized access detection</li>
-                <li>Temporal logic prevents historical data manipulation</li>
-            </ul>
-
-            <div class="sub-heading">Business Impact</div>
-            <p>
-                The system achieved <strong>100% elimination of double-bookings</strong>, enabled remote customer onboarding, captured every billable job, and gave management real-time visibility into staff performance and revenue.
-            </p>
-
+            <div class="sub-heading">Succesful Outcomes</div>
+            <p>Achieved <strong>100% elimination of double-bookings</strong>, enabled remote customer onboarding, and provided management with real-time revenue visibility.</p>
         </div>
 
         <div class="resource-sidebar">
             <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" class="resource-card">
                 <span class="resource-icon">📂</span>
-                <strong>View Source Code</strong>
-                <p style="color:#888;font-size:0.85rem;">Full ERP system repository</p>
+                <strong>View GitHub Portfolio</strong>
+                <p style="color:#888; font-size:0.85rem;">Full source code repository</p>
+            </a>
+
+            <a href="#ui-gallery" class="resource-card">
+                <span class="resource-icon">🖼️</span>
+                <strong>View UI Gallery</strong>
+                <p style="color:#888; font-size:0.85rem;">Interactive system walkthrough</p>
             </a>
         </div>
-
     </div>
-
 </section>
+
+<script>
+    /* TYPEWRITER ANIMATION */
+    const textArr = ["I ANALYZE", "I DESIGN", "I BUILD", "I OPTIMIZE"];
+    let count = 0, index = 0;
+    (function type() {
+        if (count === textArr.length) count = 0;
+        let currentText = textArr[count];
+        let letter = currentText.slice(0, ++index);
+        document.querySelector("#typewriter").textContent = letter;
+        if (letter.length === currentText.length) {
+            count++; index = 0; setTimeout(type, 2000);
+        } else {
+            setTimeout(type, 150);
+        }
+    }());
+
+    /* INTERACTIVE BULB LOGIC */
+    const bulb = document.getElementById('bulb');
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            bulb.style.filter = "grayscale(0) drop-shadow(0 0 15px var(--gold))";
+            setTimeout(() => { bulb.style.filter = ""; }, 800);
+        });
+    });
+</script>
 
 </body>
 </html>
