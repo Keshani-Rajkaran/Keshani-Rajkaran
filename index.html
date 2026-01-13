@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshani Rajkaran | Systems Development Specialist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #050505;
+    --gold: #d4af37;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(212, 175, 55, 0.2);
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: white;
+}
+
+/* Flicker */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 10px var(--gold));
+    }
+    20%, 24%, 55% {
+        opacity: 0.3;
+        filter: none;
+    }
+}
+
+.title-flicker {
+    animation: flicker 6s infinite;
+    color: var(--gold);
+}
+
+.section {
+    padding: 80px 10%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Layout */
+.project-container {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.project-details h3 {
+    font-family: 'Playfair Display';
+    font-size: 2.2rem;
+    color: var(--gold);
+}
+
+.sub-heading {
+    margin-top: 35px;
+    font-size: 1.2rem;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 15px 0;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+strong { color: white; }
+
+/* Sidebar */
+.resource-sidebar {
+    position: sticky;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.resource-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.resource-card:hover {
+    border-color: var(--gold);
+    background: rgba(212,175,55,0.05);
+    transform: translateY(-5px);
+}
+
+.resource-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<section id="projects" class="section">
+
+    <div style="text-align:center;margin-bottom:60px;">
+        <h2 class="title-flicker" style="font-family:'Playfair Display';font-size:3rem;">My Projects 🛠️</h2>
+    </div>
+
+    <div class="project-container">
+
+        <div class="project-details">
+
+            <h4 style="color:var(--gold);letter-spacing:3px;">PROJECT 1</h4>
+            <h3>ERP Scheduling System – McKaylan Motor Engineering</h3>
+
+            <p>
+                <strong>The Business Problem:</strong><br>
+                McKaylan Motor Engineering relied on paper diaries, phone calls, and in-person visits to manage bookings. 
+                Customers had to physically go to the workshop just to request appointments, creating friction, lost opportunities, 
+                and limited after-hours enquiries. This manual process caused double-bookings, unrecorded jobs, and serious revenue leakage.
+            </p>
+
+            <div class="sub-heading">Multi-Role Enterprise Architecture</div>
+            <ul>
+                <li><strong>Customer Self-Service Portal:</strong> Customers can create accounts, request bookings remotely, and view their confirmed appointments from home. This turned the business into a 24/7 digital storefront and attracted new customers.</li>
+
+                <li><strong>Admin Operations Console:</strong> Admins can create, edit, and delete appointments, manage customer records, and access report history to maintain operational accuracy.</li>
+
+                <li><strong>Manager Dashboard:</strong> Managers generate staff and seasonal performance reports, analyze revenue trends, and assign technicians to jobs for optimized workforce deployment.</li>
+
+                <li><strong>Staff Management System:</strong> Managers can add, edit, and manage technicians and allocate them to specific appointments.</li>
+            </ul>
+
+            <div class="sub-heading">Key Engineering Challenges Solved</div>
+            <ul>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Secure login layers ensure each user only sees what they are authorized to access.</li>
+                <li><strong>Centralized Relational Database:</strong> Prevents double-bookings and maintains consistent records across all subsystems.</li>
+                <li><strong>Business Intelligence Engine:</strong> Transforms raw bookings into actionable management insights.</li>
+                <li><strong>UX Architecture:</strong> Clean flows between customer booking, admin control, and manager oversight.</li>
+            </ul>
+
+            <div class="sub-heading">Security & Integrity</div>
+            <ul>
+                <li>Encrypted authentication & session control</li>
+                <li>Server-side input validation</li>
+                <li>Unauthorized access detection</li>
+                <li>Future-only booking logic protects historical data</li>
+            </ul>
+
+            <div class="sub-heading">Business Impact</div>
+            <p>
+                The system achieved <strong>100% elimination of double-bookings</strong>, enabled remote customer bookings, and gave management real-time control over staff, revenue, and operations.
+            </p>
+
+        </div>
+
+        <div class="resource-sidebar">
+            <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" class="resource-card">
+                <span class="resource-icon">📂</span>
+                <strong>Source Code</strong>
+                <p style="color:#888;font-size:0.8rem;">View full system repository</p>
+            </a>
+
+            <a href="gallery.html" class="resource-card">
+                <span class="resource-icon">🖼️</span>
+                <strong>UI & System Diagrams</strong>
+                <p style="color:#888;font-size:0.8rem;">Screens, DFDs & Architecture</p>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
