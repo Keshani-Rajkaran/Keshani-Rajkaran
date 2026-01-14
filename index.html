@@ -18,13 +18,13 @@
 *{box-sizing:border-box; scroll-behavior: smooth;}
 body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x: hidden;}
 
-/* STACKABLE FLOW TRANSITIONS */
-.reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+/* REVEAL TRANSITIONS */
+.reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* HERO SPLIT SECTION */
+/* HERO SECTION */
 .hero-wrapper {
-    min-height: 80vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +38,6 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
     gap: 50px;
     align-items: center;
     max-width: 1100px;
-    width: 100%;
 }
 
 .avatar-side img {
@@ -46,7 +45,6 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
     max-width: 320px;
     border: 2px solid var(--gold);
     border-radius: 4px;
-    filter: grayscale(10%);
 }
 
 .info-side h1 { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; }
@@ -61,7 +59,7 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
 }
 .nav-btn:hover { background: var(--purple); box-shadow: 0 0 15px var(--purple); transform: translateY(-3px); }
 
-/* PROJECT LAYOUT */
+/* PROJECT SECTIONS */
 .section { padding: 80px 10%; max-width: 1400px; margin: auto; }
 .project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 120px; }
 
@@ -69,9 +67,10 @@ h2, h3 { font-family: 'Playfair Display'; }
 .gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
 
 ul { padding: 0; list-style: none; }
-li { margin: 15px 0; color: #ccc; line-height: 1.7; }
+li { margin: 15px 0; color: #ccc; line-height: 1.7; position: relative; padding-left: 20px; }
+li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
 
-/* SIDEBAR DIRECTORY */
+/* DIRECTORY SIDEBAR */
 .sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; align-self: start; }
 .folder-card {
     background: var(--glass);
@@ -92,7 +91,7 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
     padding: 10px;
 }
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: zoom-in; }
+.gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: pointer; }
 
 /* CONTACT CARD */
 .contact-card { background: var(--glass); border: 1px solid var(--purple); padding: 25px; border-radius: 8px; }
@@ -123,14 +122,21 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
             <span class="role-tag">SYSTEMS DEVELOPMENT SPECIALIST</span>
             <p style="color: #bbb; line-height: 1.8; max-width: 600px;">
                 Hello World. I am Keshani. I am a Systems Development Specialist graduating from UKZN in May 2026. 
-                I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue[cite: 13, 14].
+                I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue.
             </p>
             <div class="nav-container">
-                <a href="#project-1" class="nav-btn">ERP Scheduling</a>
-                <a href="#project-2" class="nav-btn">Seasonal Analytics</a>
-                <a href="#contact" class="nav-btn">Contact</a>
+                <a href="#projects-header" class="nav-btn">My Projects</a>
+                <a href="#contact" class="nav-btn">Contact Me</a>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="projects-header" class="section reveal" style="text-align:center; padding-bottom: 20px;">
+    <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Systems Portfolio</h2>
+    <div style="display: flex; justify-content: center; gap: 15px;">
+        <a href="#project-1" class="nav-btn" style="border-color: var(--gold); color: var(--gold);">Project 01: ERP</a>
+        <a href="#project-2" class="nav-btn" style="border-color: var(--gold); color: var(--gold);">Project 02: BI</a>
     </div>
 </section>
 
@@ -138,20 +144,20 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
     <div class="project-layout">
         <div class="doc-side">
             <h3 class="gold-line">Project 1: ERP Scheduling System for McKaylan Motor Engineering C.C.</h3>
-            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings, unrecorded billable hours, and limited customer growth[cite: 13].</p>
-            <p><strong>Engineered Solution:</strong> Built a full ERP platform replacing paper operations with a secure digital system[cite: 13]. The platform enables online customer self-service, real-time technician scheduling, and centralized CRM[cite: 13].</p>
+            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings and revenue leakage.</p>
+            <p><strong>Engineered Solution:</strong> Built a full ERP platform that replaced paper-based operations with a secure digital system, enabling online customer self-service and real-time technician scheduling.</p>
             
             <h3 class="gold-line">Security Architecture</h3>
             <ul>
-                <li>✔ <strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
-                <li>✔ <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
-                <li>✔ <strong>Validation Logic:</strong> Server-side sanitization and duplicate detection to ensure data integrity.</li>
-                <li>✔ <strong>Access Blocked Protocols:</strong> Automatic session termination upon detecting unauthorized activity.</li>
-                <li>✔ <strong>Temporal Rules:</strong> Logic protecting historical record integrity while allowing future scheduling.</li>
+                <li><strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
+                <li><strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
+                <li><strong>Validation Logic:</strong> Server-side sanitization and duplicate detection.</li>
+                <li><strong>Access Blocked Protocols:</strong> Automatic session termination for unauthorized activity.</li>
+                <li><strong>Temporal Rules:</strong> Logic protecting historical record integrity while allowing future bookings.</li>
             </ul>
 
             <h3 class="gold-line">Business Impact</h3>
-            <p>Achieved <strong>100% elimination of double-bookings</strong> and enabled a ~40% increase in customer acquisition through digital self-service[cite: 13].</p>
+            <p>Achieved <strong>100% elimination of double-bookings</strong> and enabled a ~40% increase in customer acquisition through digital self-service.</p>
         </div>
 
         <div class="sidebar-directory">
@@ -171,11 +177,9 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
                 <div id="p1-ui" class="folder-content">
                     <div class="gallery-grid">
                         <img src="img/Home.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Book_Appointment.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Reviews.png" onclick="zoom(this.src, 'img')">
                         <img src="img/Manager Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Schedulung Report Dashboard.png" onclick="zoom(this.src, 'img')">
                         <img src="img/Staff Intelligence Dashboard.png" onclick="zoom(this.src, 'img')">
+                        <img src="img/Reviews.png" onclick="zoom(this.src, 'img')">
                     </div>
                 </div>
             </div>
@@ -187,19 +191,19 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
     <div class="project-layout">
         <div class="doc-side">
             <h3 class="gold-line">Project 2: Enterprise Seasonal Analytics & Reporting System</h3>
-            <p><strong>Business Problem:</strong> Lack of forecasting demand or tracking workforce efficiency across seasons led to misaligned staffing and missed growth opportunities[cite: 13].</p>
-            <p><strong>Engineered Solution:</strong> Architected in <strong>C# logic using ASP.NET</strong>, this reporting engine selection selects specific business seasons to generate automated "Strategic Verdicts" based on client footfall and technician load[cite: 14, 15].</p>
+            <p><strong>Business Problem:</strong> Lack of forecasting demand or tracking workforce efficiency across seasons led to misaligned staffing.</p>
+            <p><strong>Engineered Solution:</strong> Architected in <strong>C# logic using ASP.NET</strong>, this reporting engine selecting specific business seasons to generate automated "Strategic Verdicts" based on data.</p>
 
-            <h3 class="gold-line">Automated Intelligence Capabilities</h3>
+            <h3 class="gold-line">Automated Intelligence</h3>
             <ul>
-                <li>📊 <strong>Operational Volume Analysis:</strong> Generates Daily Service Demand Trends to identify routine maintenance peaks.</li>
-                <li>👥 <strong>Workforce Efficiency:</strong> Tracks Technical Staff Engagement and individual Technician Performance Breakdown (Avg Weekly/Monthly hours).</li>
-                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven recommendations, such as referral incentives during heavy reliance on repeat business.</li>
-                <li>📈 <strong>Client Analytics:</strong> Analyzes Total Client Footfall and Acquisition Ratios to determine new traffic percentages.</li>
+                <li>📊 <strong>Operational Volume Analysis:</strong> Daily Service Demand Trends identify routine maintenance peaks.</li>
+                <li>👥 <strong>Workforce Efficiency:</strong> Tracks Technical Staff Engagement and individual Technician Performance Breakdown.</li>
+                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven insights that automate high-level business recommendations.</li>
+                <li>📈 <strong>Client Analytics:</strong> Analyzes Total Client Footfall and Acquisition Ratios to determine traffic percentages.</li>
             </ul>
 
             <h3 class="gold-line">Business Impact</h3>
-            <p>Empowers management with <strong>Data-Driven Intuition</strong>, allowing proactive staffing 3 months ahead of peak seasons[cite: 13, 15].</p>
+            <p>Empowers management with <strong>Data-Driven Intuition</strong>, allowing proactive staffing 3 months ahead of peak seasons.</p>
         </div>
 
         <div class="sidebar-directory">
@@ -208,24 +212,27 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
             </a>
             <div class="folder-card" onclick="toggleFolder('p2-docs')"><span>📄</span> <strong>Strategic Reports (PDF)</strong>
                 <div id="p2-docs" class="folder-content">
-                    <p style="font-size: 0.8rem; color: var(--gold); margin-bottom: 8px;">Sample: Seasonal Performance Report 4.pdf</p>
-                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:white; font-size: 0.8rem;">Open PDF Full View →</a>
+                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:white; font-size: 0.8rem;">Open Performance Report PDF →</a>
                 </div>
             </div>
-            <div class="folder-card" onclick="toggleFolder('p2-ui')"><span>🖥️</span> <strong>UI & Demo Gallery</strong>
-                <div id="p2-ui" class="folder-content">
-                    <div class="gallery-grid">
-                        <img src="img/Seasonal Report Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Customer Intelligence Report Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <video src="project 2 vid demo/Seasonal Performance System Video.mp4" onclick="zoom(this.src, 'video')"></video>
-                    </div>
+            <div class="folder-card" onclick="toggleFolder('p2-vid')"><span>🎬</span> <strong>System Demo Video</strong>
+                <div id="p2-vid" class="folder-content">
+                    <video src="project 2 vid demo/Seasonal Performance System Video.mp4" controls style="width:100%; border-radius: 4px;"></video>
+                    <p style="font-size: 0.7rem; color: var(--gold); margin-top: 10px; text-align: center;">Click to play in-folder or zoom →</p>
+                    <button onclick="zoom('project 2 vid demo/Seasonal Performance System Video.mp4', 'video')" style="width:100%; background: var(--purple); color:white; border:none; padding:8px; margin-top:5px; cursor:pointer;">FULLSCREEN MODE</button>
                 </div>
             </div>
-            <div id="contact" class="contact-card">
-                <p style="color:var(--purple); font-weight: bold; margin-top:0;">CONNECT</p>
-                <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-link">📧 Email Keshani</a>
-                <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
-            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section reveal" style="text-align:center;">
+    <h2 class="gold-line" style="display:inline-block; padding: 0 40px 10px;">Connect With Me</h2>
+    <div style="display:flex; justify-content:center; gap:20px; margin-top:30px;">
+        <div class="contact-card" style="width: 300px;">
+            <p style="color:var(--purple); font-weight: bold; margin-top:0;">CHANNELS</p>
+            <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-link">📧 Email Keshani</a>
+            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
         </div>
     </div>
 </section>
