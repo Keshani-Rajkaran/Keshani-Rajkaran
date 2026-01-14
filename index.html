@@ -51,7 +51,7 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
 .role-tag { color: var(--gold); letter-spacing: 5px; font-weight: 600; margin: 10px 0; display: block; }
 
 /* NAV BUTTONS */
-.nav-container { display: flex; gap: 15px; margin-top: 30px; }
+.nav-container { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;}
 .nav-btn {
     text-decoration: none; color: white; padding: 12px 25px;
     border: 1px solid var(--purple); background: rgba(138, 43, 226, 0.1);
@@ -59,44 +59,38 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
 }
 .nav-btn:hover { background: var(--purple); box-shadow: 0 0 15px var(--purple); transform: translateY(-3px); }
 
-/* PROJECT SECTIONS */
+/* TIMELINE & EDUCATION SECTION */
 .section { padding: 80px 10%; max-width: 1400px; margin: auto; }
-.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 120px; }
+.split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 
 h2, h3 { font-family: 'Playfair Display'; }
 .gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
 
-ul { padding: 0; list-style: none; }
-li { margin: 15px 0; color: #ccc; line-height: 1.7; position: relative; padding-left: 20px; }
-li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
+/* TIMELINE DESIGN */
+.timeline { border-left: 2px solid var(--purple); padding-left: 30px; position: relative; }
+.timeline-item { position: relative; margin-bottom: 50px; }
+.timeline-item::before {
+    content: ""; position: absolute; left: -41px; top: 0;
+    width: 20px; height: 20px; border-radius: 50%; background: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
+}
+.star-performer { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; font-weight: 600; }
 
-/* DIRECTORY SIDEBAR */
+/* SKILLS TAGS */
+.tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.skill-tag { 
+    background: var(--glass); border: 1px solid var(--border); 
+    padding: 5px 12px; font-size: 0.75rem; color: #ccc;
+}
+
+/* FOLDERS & GALLERIES */
+.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 120px; }
 .sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; align-self: start; }
-.folder-card {
-    background: var(--glass);
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+.folder-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
 .folder-card:hover { border-color: var(--gold); transform: translateX(5px); }
-
-.folder-content {
-    display: none;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 15px;
-    background: rgba(0,0,0,0.4);
-    padding: 10px;
-}
+.folder-content { display: none; max-height: 400px; overflow-y: auto; margin-top: 15px; background: rgba(0,0,0,0.4); padding: 10px; }
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: pointer; }
-
-/* CONTACT CARD */
-.contact-card { background: var(--glass); border: 1px solid var(--purple); padding: 25px; border-radius: 8px; }
-.contact-link { color: white; text-decoration: none; display: flex; align-items: center; gap: 15px; margin: 10px 0; transition: 0.3s; }
-.contact-link:hover { color: var(--purple); }
 
 /* LIGHTBOX */
 #lightbox {
@@ -126,6 +120,8 @@ li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; fo
             </p>
             <div class="nav-container">
                 <a href="#projects-header" class="nav-btn">My Projects</a>
+                <a href="#experience" class="nav-btn">Experience</a>
+                <a href="#education" class="nav-btn">Education</a>
                 <a href="#contact" class="nav-btn">Contact Me</a>
             </div>
         </div>
@@ -140,89 +136,71 @@ li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; fo
     </div>
 </section>
 
-<section id="project-1" class="section reveal">
-    <div class="project-layout">
-        <div class="doc-side">
-            <h3 class="gold-line">Project 1: ERP Scheduling System for McKaylan Motor Engineering C.C.</h3>
-            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings and revenue leakage.</p>
-            <p><strong>Engineered Solution:</strong> Built a full ERP platform that replaced paper-based operations with a secure digital system, enabling online customer self-service and real-time technician scheduling.</p>
+<section id="experience" class="section reveal">
+    <div class="split-layout">
+        
+        <div class="experience-side">
+            <h2 class="gold-line">Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <span class="star-performer">★ STAR PERFORMER RECOGNITION</span>
+                    <h3>Forensic AI Strategy Analyst</h3>
+                    <p style="color: var(--gold); font-size: 0.9rem;">Excelerate (Grant Thornton & RIT) | May 2025 – June 2025</p>
+                    <ul style="padding: 0; list-style: none; font-size: 0.95rem; color: #ccc;">
+                        <li>• Delivered AI-driven technical briefings to senior leadership for high-level execution.</li>
+                        <li>• Optimized fraud detection accuracy by engineering ML algorithm selection processes.</li>
+                        <li>• Authored compliance reports aligning AI forensics with global regulatory standards.</li>
+                        <li>• Led cross-cultural coordination to align AI initiatives with business objectives.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="star-performer">91% DISTINCTION</span>
+                    <h3>Full Stack Developer Training</h3>
+                    <p style="color: var(--gold); font-size: 0.9rem;">FNB App Academy | May 2025 – July 2025</p>
+                    <ul style="padding: 0; list-style: none; font-size: 0.95rem; color: #ccc;">
+                        <li>• Mastered the design of full-stack apps utilizing HTML, CSS, Python, and JavaScript.</li>
+                        <li>• Engineered modern front-end solutions with React, Tailwind CSS, and Firebase.</li>
+                        <li>• Applied Design Thinking and Agile methodologies to bridge code with commercial goals.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="education-side" id="education">
+            <h2 class="gold-line">Education</h2>
+            <div class="folder-card" style="margin-bottom: 40px; cursor: default;">
+                <p style="color: var(--gold); margin: 0; font-weight: bold;">BCom: Information Systems</p>
+                <p style="margin: 5px 0;">University of KwaZulu-Natal (UKZN)</p>
+                <p style="font-size: 0.85rem; color: #888;">Completed: 2025 | Graduation: May 2026</p>
+            </div>
+
+            <h2 class="gold-line">Technical Proficiency</h2>
             
-            <h3 class="gold-line">Security Architecture</h3>
-            <ul>
-                <li><strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
-                <li><strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
-                <li><strong>Validation Logic:</strong> Server-side sanitization and duplicate detection.</li>
-                <li><strong>Access Blocked Protocols:</strong> Automatic session termination for unauthorized activity.</li>
-                <li><strong>Temporal Rules:</strong> Logic protecting historical record integrity while allowing future bookings.</li>
-            </ul>
-
-            <h3 class="gold-line">Business Impact</h3>
-            <p>Achieved <strong>100% elimination of double-bookings</strong> and enabled a ~40% increase in customer acquisition through digital self-service.</p>
-        </div>
-
-        <div class="sidebar-directory">
-            <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" style="text-decoration:none; color:white;">
-                <div class="folder-card"><span>📂</span> <strong>View GitHub Repository</strong></div>
-            </a>
-            <div class="folder-card" onclick="toggleFolder('p1-arch')"><span>📐</span> <strong>System Architecture</strong>
-                <div id="p1-arch" class="folder-content">
-                    <p style="font-size: 0.7rem; color: var(--gold); margin-bottom: 8px;">• Click to zoom •</p>
-                    <div class="gallery-grid">
-                        <img src="img/Context Level dfd.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Level 0 DFD.png" onclick="zoom(this.src, 'img')">
-                    </div>
-                </div>
+            <h3 style="font-size: 1rem; color: var(--gold);">Programming & Frameworks</h3>
+            <div class="tag-container">
+                <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">C#</span>
+                <span class="skill-tag">React</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">HTML5/CSS3</span>
             </div>
-            <div class="folder-card" onclick="toggleFolder('p1-ui')"><span>🖥️</span> <strong>UI Gallery</strong>
-                <div id="p1-ui" class="folder-content">
-                    <div class="gallery-grid">
-                        <img src="img/Home.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Manager Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Staff Intelligence Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Reviews.png" onclick="zoom(this.src, 'img')">
-                    </div>
-                </div>
+
+            <h3 style="font-size: 1rem; color: var(--gold); margin-top: 25px;">Databases & Architecture</h3>
+            <div class="tag-container">
+                <span class="skill-tag">SQL Server</span><span class="skill-tag">Firebase</span><span class="skill-tag">ERP Design</span>
+            </div>
+
+            <h3 style="font-size: 1rem; color: var(--gold); margin-top: 25px;">Systems & Methodology</h3>
+            <div class="tag-container">
+                <span class="skill-tag">Agile Methodology</span><span class="skill-tag">Design Thinking</span><span class="skill-tag">GitHub</span>
+                <span class="skill-tag">AI Forensic Analysis</span><span class="skill-tag">Excel Mastery</span>
+            </div>
+            
+            <div class="contact-card" style="margin-top: 40px; border-style: dashed; opacity: 0.8;">
+                <p style="font-size: 0.85rem; color: #ccc;">Proficient in high-level Microsoft Suite execution and Strategic Analytical Writing.</p>
             </div>
         </div>
-    </div>
-</section>
 
-<section id="project-2" class="section reveal">
-    <div class="project-layout">
-        <div class="doc-side">
-            <h3 class="gold-line">Project 2: Enterprise Seasonal Analytics & Reporting System</h3>
-            <p><strong>Business Problem:</strong> Lack of forecasting demand or tracking workforce efficiency across seasons led to misaligned staffing.</p>
-            <p><strong>Engineered Solution:</strong> Architected in <strong>C# logic using ASP.NET</strong>, this reporting engine selecting specific business seasons to generate automated "Strategic Verdicts" based on data.</p>
-
-            <h3 class="gold-line">Automated Intelligence</h3>
-            <ul>
-                <li>📊 <strong>Operational Volume Analysis:</strong> Daily Service Demand Trends identify routine maintenance peaks.</li>
-                <li>👥 <strong>Workforce Efficiency:</strong> Tracks Technical Staff Engagement and individual Technician Performance Breakdown.</li>
-                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven insights that automate high-level business recommendations.</li>
-                <li>📈 <strong>Client Analytics:</strong> Analyzes Total Client Footfall and Acquisition Ratios to determine traffic percentages.</li>
-            </ul>
-
-            <h3 class="gold-line">Business Impact</h3>
-            <p>Empowers management with <strong>Data-Driven Intuition</strong>, allowing proactive staffing 3 months ahead of peak seasons.</p>
-        </div>
-
-        <div class="sidebar-directory">
-            <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/tree/main" target="_blank" style="text-decoration:none; color:white;">
-                <div class="folder-card"><span>📂</span> <strong>View GitHub Repository</strong></div>
-            </a>
-            <div class="folder-card" onclick="toggleFolder('p2-docs')"><span>📄</span> <strong>Strategic Reports (PDF)</strong>
-                <div id="p2-docs" class="folder-content">
-                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:white; font-size: 0.8rem;">Open Performance Report PDF →</a>
-                </div>
-            </div>
-            <div class="folder-card" onclick="toggleFolder('p2-vid')"><span>🎬</span> <strong>System Demo Video</strong>
-                <div id="p2-vid" class="folder-content">
-                    <video src="project 2 vid demo/Seasonal Performance System Video.mp4" controls style="width:100%; border-radius: 4px;"></video>
-                    <p style="font-size: 0.7rem; color: var(--gold); margin-top: 10px; text-align: center;">Click to play in-folder or zoom →</p>
-                    <button onclick="zoom('project 2 vid demo/Seasonal Performance System Video.mp4', 'video')" style="width:100%; background: var(--purple); color:white; border:none; padding:8px; margin-top:5px; cursor:pointer;">FULLSCREEN MODE</button>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
