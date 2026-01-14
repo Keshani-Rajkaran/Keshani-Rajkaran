@@ -22,13 +22,13 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
 .reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* HERO SECTION */
+/* HERO SPLIT SECTION */
 .hero-wrapper {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 10%;
+    padding: 100px 10% 50px;
     background: radial-gradient(circle at bottom, #111, #000);
 }
 
@@ -37,7 +37,8 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
     grid-template-columns: 0.8fr 1.2fr;
     gap: 50px;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
+    width: 100%;
 }
 
 .avatar-side img {
@@ -45,71 +46,63 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
     max-width: 320px;
     border: 2px solid var(--gold);
     border-radius: 4px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+    filter: grayscale(10%);
 }
 
-.info-side h1 { font-family: 'Playfair Display'; font-size: clamp(2.5rem, 6vw, 4.5rem); margin: 0; }
-.role-tag { color: var(--gold); letter-spacing: 5px; font-weight: 600; margin: 15px 0; display: block; }
+.info-side h1 { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; }
+.role-tag { color: var(--gold); letter-spacing: 5px; font-weight: 600; margin: 10px 0; display: block; }
 
-/* PURPLE NAV */
-.nav-container { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+/* NAV BUTTONS */
+.nav-container { display: flex; gap: 15px; margin-top: 30px; }
 .nav-btn {
     text-decoration: none; color: white; padding: 12px 25px;
     border: 1px solid var(--purple); background: rgba(138, 43, 226, 0.1);
-    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s;
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s;
 }
-.nav-btn:hover { background: var(--purple); box-shadow: 0 0 20px var(--purple); transform: translateY(-3px); }
+.nav-btn:hover { background: var(--purple); box-shadow: 0 0 15px var(--purple); transform: translateY(-3px); }
 
-/* PROJECT CONTAINER */
-.section { padding: 100px 10%; max-width: 1400px; margin: auto; }
-.project-layout { 
-    display: grid; 
-    grid-template-columns: 1.2fr 0.8fr; 
-    gap: 80px; 
-    margin-bottom: 150px; 
-    background: rgba(255,255,255,0.01);
-    padding: 40px;
-    border-radius: 15px;
-}
+/* PROJECT LAYOUT */
+.section { padding: 80px 10%; max-width: 1400px; margin: auto; }
+.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 120px; }
 
 h2, h3 { font-family: 'Playfair Display'; }
-.gold-line { border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 25px; color: var(--gold); }
+.gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
 
 ul { padding: 0; list-style: none; }
-li { margin: 15px 0; color: #ccc; line-height: 1.7; position: relative; padding-left: 20px; }
-li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
+li { margin: 15px 0; color: #ccc; line-height: 1.7; }
 
-/* DIRECTORY SIDEBAR */
-.sidebar-directory { position: sticky; top: 120px; display: flex; flex-direction: column; gap: 20px; align-self: start; }
+/* SIDEBAR DIRECTORY */
+.sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; align-self: start; }
 .folder-card {
     background: var(--glass);
     border: 1px solid var(--border);
-    padding: 22px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.3s;
 }
-.folder-card:hover { border-color: var(--gold); background: rgba(212, 175, 55, 0.05); transform: translateX(8px); }
+.folder-card:hover { border-color: var(--gold); transform: translateX(5px); }
 
 .folder-content {
     display: none;
     max-height: 400px;
     overflow-y: auto;
     margin-top: 15px;
-    background: rgba(0,0,0,0.5);
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
 }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: zoom-in; }
 
-.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: pointer; transition: 0.3s; }
-.gallery-grid img:hover { transform: scale(1.02); border-color: var(--gold); }
+/* CONTACT CARD */
+.contact-card { background: var(--glass); border: 1px solid var(--purple); padding: 25px; border-radius: 8px; }
+.contact-link { color: white; text-decoration: none; display: flex; align-items: center; gap: 15px; margin: 10px 0; transition: 0.3s; }
+.contact-link:hover { color: var(--purple); }
 
 /* LIGHTBOX */
 #lightbox {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.98); display: none; align-items: center;
+    background: rgba(0,0,0,0.95); display: none; align-items: center;
     justify-content: center; z-index: 5000;
 }
 #lightbox img, #lightbox video { max-width: 90%; max-height: 85%; border: 2px solid var(--gold); }
@@ -124,18 +117,16 @@ li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
 
 <section class="hero-wrapper">
     <div class="hero-grid">
-        <div class="avatar-side">
-            <img src="img/Keshani Profile Picture.jpeg" alt="Keshani Rajkaran">
-        </div>
+        <div class="avatar-side"><img src="img/Keshani Profile Picture.jpeg" alt="Keshani Rajkaran"></div>
         <div class="info-side">
             <h1>KESHANI <span style="color:var(--gold)">RAJKARAN</span></h1>
             <span class="role-tag">SYSTEMS DEVELOPMENT SPECIALIST</span>
-            <p style="color: #bbb; line-height: 1.9; max-width: 650px; font-size: 1.05rem;">
+            <p style="color: #bbb; line-height: 1.8; max-width: 600px;">
                 Hello World. I am Keshani. I am a Systems Development Specialist graduating from UKZN in May 2026. 
-                I specialize in engineering digital transformations that turn manual operational friction into strategic revenue-generating assets.
+                I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue[cite: 13, 14].
             </p>
             <div class="nav-container">
-                <a href="#project-1" class="nav-btn">ERP Systems</a>
+                <a href="#project-1" class="nav-btn">ERP Scheduling</a>
                 <a href="#project-2" class="nav-btn">Seasonal Analytics</a>
                 <a href="#contact" class="nav-btn">Contact</a>
             </div>
@@ -146,38 +137,44 @@ li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
 <section id="project-1" class="section reveal">
     <div class="project-layout">
         <div class="doc-side">
-            <h4 style="color:var(--gold); letter-spacing: 4px; margin:0;">PROJECT 01</h4>
-            <h3 class="gold-line">ERP Scheduling System: McKaylan Motor Engineering C.C.</h3>
+            <h3 class="gold-line">Project 1: ERP Scheduling System for McKaylan Motor Engineering C.C.</h3>
+            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings, unrecorded billable hours, and limited customer growth[cite: 13].</p>
+            <p><strong>Engineered Solution:</strong> Built a full ERP platform replacing paper operations with a secure digital system[cite: 13]. The platform enables online customer self-service, real-time technician scheduling, and centralized CRM[cite: 13].</p>
             
-            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings and lost revenue visibility.</p>
-
             <h3 class="gold-line">Security Architecture</h3>
             <ul>
-                <li>✔ Role-Based Access Control (Admin, Manager, Customer)</li>
-                <li>✔ Encrypted authentication and multi-layer session protection</li>
-                <li>✔ Server-side validation and duplicate detection</li>
-                <li>✔ Automatic access blocking on unauthorized activity</li>
-                <li>✔ Temporal rules protecting historical data integrity</li>
+                <li>✔ <strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
+                <li>✔ <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
+                <li>✔ <strong>Validation Logic:</strong> Server-side sanitization and duplicate detection to ensure data integrity.</li>
+                <li>✔ <strong>Access Blocked Protocols:</strong> Automatic session termination upon detecting unauthorized activity.</li>
+                <li>✔ <strong>Temporal Rules:</strong> Logic protecting historical record integrity while allowing future scheduling.</li>
             </ul>
 
             <h3 class="gold-line">Business Impact</h3>
-            <p>Achieved <strong>100% elimination of double-bookings</strong> and provided management with instant visibility into seasonal revenue trends.</p>
+            <p>Achieved <strong>100% elimination of double-bookings</strong> and enabled a ~40% increase in customer acquisition through digital self-service[cite: 13].</p>
         </div>
 
         <div class="sidebar-directory">
-            <div class="folder-card" onclick="toggleFolder('p1-arch')">📂 <strong>System Architecture</strong>
+            <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" style="text-decoration:none; color:white;">
+                <div class="folder-card"><span>📂</span> <strong>View GitHub Repository</strong></div>
+            </a>
+            <div class="folder-card" onclick="toggleFolder('p1-arch')"><span>📐</span> <strong>System Architecture</strong>
                 <div id="p1-arch" class="folder-content">
+                    <p style="font-size: 0.7rem; color: var(--gold); margin-bottom: 8px;">• Click to zoom •</p>
                     <div class="gallery-grid">
                         <img src="img/Context Level dfd.png" onclick="zoom(this.src, 'img')">
                         <img src="img/Level 0 DFD.png" onclick="zoom(this.src, 'img')">
                     </div>
                 </div>
             </div>
-            <div class="folder-card" onclick="toggleFolder('p1-ui')">🖥️ <strong>UI Gallery</strong>
+            <div class="folder-card" onclick="toggleFolder('p1-ui')"><span>🖥️</span> <strong>UI Gallery</strong>
                 <div id="p1-ui" class="folder-content">
                     <div class="gallery-grid">
                         <img src="img/Home.png" onclick="zoom(this.src, 'img')">
+                        <img src="img/Book_Appointment.png" onclick="zoom(this.src, 'img')">
+                        <img src="img/Reviews.png" onclick="zoom(this.src, 'img')">
                         <img src="img/Manager Dashboard.png" onclick="zoom(this.src, 'img')">
+                        <img src="img/Schedulung Report Dashboard.png" onclick="zoom(this.src, 'img')">
                         <img src="img/Staff Intelligence Dashboard.png" onclick="zoom(this.src, 'img')">
                     </div>
                 </div>
@@ -189,44 +186,45 @@ li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
 <section id="project-2" class="section reveal">
     <div class="project-layout">
         <div class="doc-side">
-            <h4 style="color:var(--gold); letter-spacing: 4px; margin:0;">PROJECT 02</h4>
-            <h3 class="gold-line">Enterprise Seasonal Analytics & Reporting System</h3>
-            
-            <p><strong>Business Problem:</strong> Management lacked a way to forecast seasonal demand or track technician workload efficiency, leading to "guesswork" rather than data-driven scaling.</p>
+            <h3 class="gold-line">Project 2: Enterprise Seasonal Analytics & Reporting System</h3>
+            <p><strong>Business Problem:</strong> Lack of forecasting demand or tracking workforce efficiency across seasons led to misaligned staffing and missed growth opportunities[cite: 13].</p>
+            <p><strong>Engineered Solution:</strong> Architected in <strong>C# logic using ASP.NET</strong>, this reporting engine selection selects specific business seasons to generate automated "Strategic Verdicts" based on client footfall and technician load[cite: 14, 15].</p>
 
-            <p><strong>The Solution:</strong> I engineered a specialized Business Intelligence (BI) engine that performs complex data aggregation on historical records to generate "Strategic Verdicts" and seasonal trend analysis.</p>
-
-            <h3 class="gold-line">Key Functional Deliverables</h3>
+            <h3 class="gold-line">Automated Intelligence Capabilities</h3>
             <ul>
-                <li>📊 <strong>Demand Forecasting:</strong> Visual analysis of operational volume (Demand) across seasonal cycles.</li>
-                <li>👥 <strong>Workforce Analysis:</strong> Detailed tracking of technician efficiency and workload stress-testing.</li>
-                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven insights that automate high-level business recommendations.</li>
-                <li>🖨️ <strong>Report Digitization:</strong> High-fidelity reporting for executive stakeholders.</li>
+                <li>📊 <strong>Operational Volume Analysis:</strong> Generates Daily Service Demand Trends to identify routine maintenance peaks.</li>
+                <li>👥 <strong>Workforce Efficiency:</strong> Tracks Technical Staff Engagement and individual Technician Performance Breakdown (Avg Weekly/Monthly hours).</li>
+                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven recommendations, such as referral incentives during heavy reliance on repeat business.</li>
+                <li>📈 <strong>Client Analytics:</strong> Analyzes Total Client Footfall and Acquisition Ratios to determine new traffic percentages.</li>
             </ul>
 
             <h3 class="gold-line">Business Impact</h3>
-            <p>Empowered management with <strong>Strategic Intuition</strong>, allowing for workforce scaling 3 months in advance of peak seasons and improving technician retention.</p>
+            <p>Empowers management with <strong>Data-Driven Intuition</strong>, allowing proactive staffing 3 months ahead of peak seasons[cite: 13, 15].</p>
         </div>
 
         <div class="sidebar-directory">
             <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/tree/main" target="_blank" style="text-decoration:none; color:white;">
-                <div class="folder-card">📁 <strong>View GitHub Repository</strong></div>
+                <div class="folder-card"><span>📂</span> <strong>View GitHub Repository</strong></div>
             </a>
-            
-            <div class="folder-card" onclick="toggleFolder('p2-docs')">📄 <strong>Strategic Reports (PDF)</strong>
+            <div class="folder-card" onclick="toggleFolder('p2-docs')"><span>📄</span> <strong>Strategic Reports (PDF)</strong>
                 <div id="p2-docs" class="folder-content">
-                    <p style="font-size: 0.8rem; color: var(--gold); margin-bottom: 10px;">Sample: Seasonal Performance Report 4.pdf</p>
-                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:white; font-size: 0.8rem; text-decoration: underline;">Open Document Full View →</a>
+                    <p style="font-size: 0.8rem; color: var(--gold); margin-bottom: 8px;">Sample: Seasonal Performance Report 4.pdf</p>
+                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:white; font-size: 0.8rem;">Open PDF Full View →</a>
                 </div>
             </div>
-
-            <div class="folder-card" onclick="toggleFolder('p2-vid')">🎬 <strong>System Demo Video</strong>
-                <div id="p2-vid" class="folder-content">
+            <div class="folder-card" onclick="toggleFolder('p2-ui')"><span>🖥️</span> <strong>UI & Demo Gallery</strong>
+                <div id="p2-ui" class="folder-content">
                     <div class="gallery-grid">
+                        <img src="img/Seasonal Report Dashboard.png" onclick="zoom(this.src, 'img')">
+                        <img src="img/Customer Intelligence Report Dashboard.png" onclick="zoom(this.src, 'img')">
                         <video src="project 2 vid demo/Seasonal Performance System Video.mp4" onclick="zoom(this.src, 'video')"></video>
                     </div>
-                    <p style="font-size: 0.7rem; color: #888; margin-top: 5px;">Click to play full-screen demo</p>
                 </div>
+            </div>
+            <div id="contact" class="contact-card">
+                <p style="color:var(--purple); font-weight: bold; margin-top:0;">CONNECT</p>
+                <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-link">📧 Email Keshani</a>
+                <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
             </div>
         </div>
     </div>
@@ -237,12 +235,10 @@ function toggleFolder(id){
     const el = document.getElementById(id);
     el.style.display = (el.style.display === "block") ? "none" : "block";
 }
-
 function zoom(src, type){
     const lb = document.getElementById("lightbox");
     const img = document.getElementById("lb-img");
     const vid = document.getElementById("lb-video");
-    
     lb.style.display = "flex";
     if(type === 'img'){
         img.src = src; img.style.display = "block"; vid.style.display = "none";
@@ -251,7 +247,6 @@ function zoom(src, type){
         vid.play();
     }
 }
-
 window.addEventListener('scroll', () => {
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(reveal => {
@@ -261,6 +256,5 @@ window.addEventListener('scroll', () => {
     });
 });
 </script>
-
 </body>
 </html>
