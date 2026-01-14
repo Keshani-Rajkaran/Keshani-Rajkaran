@@ -37,9 +37,9 @@
         }
 
         .avatar-box {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            border-radius: 60%;
             border: 2px solid var(--gold);
             margin: 0 auto 20px;
             overflow: hidden;
@@ -65,9 +65,8 @@
             text-transform: uppercase;
         }
 
-        /* PROJECT SECTION */
+        /* PROJECT SECTION ARCHITECTURE */
         .section { padding: 90px 10%; max-width: 1400px; margin: auto; }
-        
         .project-container {
             display: grid;
             grid-template-columns: 1.3fr 0.7fr;
@@ -76,11 +75,27 @@
         }
 
         .project-details h3 { font-family: 'Playfair Display'; font-size: 2.3rem; color: var(--gold); margin-top: 10px; }
-        .sub-heading { margin-top: 40px; font-size: 1.2rem; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: bold; }
+        .sub-heading { margin-top: 40px; font-size: 1.2rem; color: var(--gold); border-bottom: 1px solid var(--border); padding-bottom: 8px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
         
         ul { list-style: none; padding: 0; }
         li { margin: 15px 0; line-height: 1.8; color: #ccc; }
         strong { color: white; }
+
+        /* ARCHITECTURE DIAGRAMS */
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .diag-box {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 15px;
+            text-align: center;
+        }
+        .diag-box img { width: 100%; height: auto; cursor: zoom-in; transition: 0.3s; }
+        .diag-box img:hover { border-color: var(--gold); transform: scale(1.02); }
 
         /* RESOURCE SIDEBAR */
         .resource-sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 30px; }
@@ -115,7 +130,7 @@
 <section class="hero-wrapper">
     <div class="command-center">
         <div class="avatar-box">
-            <img src="your-avatar.png" alt="Keshani Rajkaran">
+            <img src=img/Keshani Profile Picture.jpeg alt="Keshani Rajkaran">
         </div>
         <h1 style="font-family:'Playfair Display'; font-size: 3.5rem;">KESHANI <span style="color:var(--gold);">RAJKARAN</span></h1>
         
@@ -141,7 +156,7 @@
 <section id="projects" class="section">
     <div style="text-align:center; margin-bottom:70px;">
         <h2 class="title-flicker" style="font-family:'Playfair Display'; font-size:3rem;">My Projects 🛠️</h2>
-        <p style="color:#aaa;">Real business systems engineered for operational impact</p>
+        <p style="color:#aaa;">Strategic systems engineered for enterprise impact</p>
     </div>
 
     <div class="project-container">
@@ -150,20 +165,51 @@
             <h3>ERP Scheduling System for Mckaylan Motor Engineering C.C</h3>
 
             <p><strong>The Business Problem:</strong><br>
-                The company relied on manual paper diaries and fragmented spreadsheets, leading to double-bookings and lost revenue. Customers were required to physically visit the workshop for appointments, causing friction and limiting growth.
+                The company relied on manual paper diaries and fragmented spreadsheets, leading to double-bookings and lost revenue. Customers had to physically visit the workshop to request appointments, limiting growth.
             </p>
 
             <div class="sub-heading">Key Complexities & Engineered Solutions</div>
             <ul>
-                <li>◻ <strong>Admin Operations Console:</strong> I designed a full administrative control panel that allows authorized users to create, edit, and delete appointments, manage customer records, and access historical report data. This ensures staff can correct errors and maintain accuracy without developer intervention.</li>
-                <li>◻ <strong>Managerial Decision Dashboard:</strong> I engineered a separate Manager Dashboard that transforms raw transactional data into actionable insights. Managers can generate performance and seasonal reports to make evidence-based decisions rather than relying on guesswork.</li>
-                <li>◻ <strong>Staff & Resource Allocation Engine:</strong> Managers can add technicians, edit staff records, and assign technicians to specific appointments. This ensures the right staff are deployed to the right jobs at the right time.</li>
-                <li>◻ <strong>Customer Management System (CRM):</strong> Includes a module that allows admins to add, edit, and remove customer records. This enables the business to track customer history and support repeat business.</li>
+                <li>◻ <strong>Admin Operations Console:</strong> Full administrative control panel for appointment lifecycle and customer record management.</li>
+                <li>◻ <strong>Managerial Decision Dashboard:</strong> Transformed raw data into actionable insights via seasonal and staff performance reports.</li>
+                <li>◻ <strong>Staff & Resource Allocation Engine:</strong> Controlled deployment of technicians based on real-time availability.</li>
+                <li>◻ <strong>Customer Management System (CRM):</strong> Lightweight CRM module to track customer history and support repeat business.</li>
             </ul>
+
+            <div class="sub-heading">System Security</div>
+            <ul>
+                <li>◻ <strong>RBAC Architecture:</strong> Hierarchical permissions protecting sensitive dashboards.</li>
+                <li>◻ <strong>Automated Session Termination:</strong> Logic-driven "Access Blocked" protocols for unauthorized attempts.</li>
+                <li>◻ <strong>Temporal Logic:</strong> Protecting historical record integrity while allowing future bookings.</li>
+            </ul>
+
+            <div class="sub-heading">System Architecture</div>
+            <p style="color:#c71585; font-size: 0.9rem; margin-bottom: 20px;">Logic flow and data mapping used to ensure multi-tier integration.</p>
+            <div class="architecture-grid">
+                <div class="diag-box">
+                    <img src="img/Context Level dfd.png" alt="System Context Diagram">
+                    <p style="font-size: 0.75rem; color: var(--gold); margin-top: 10px;">CONTEXT LEVEL DFD DIAGRAM</p>
+                </div>
+                <div class="diag-box">
+                    <img src="img/Level 0 DFD.png" alt="DFD Level 0">
+                    <p style="font-size: 0.75rem; color: var(--gold); margin-top: 10px;">DFD LEVEL 0</p>
+                </div>
+            </div>
+            
+            
 
             <div class="sub-heading">Succesful Outcomes</div>
             <p>
-                By separating the system into Customer, Admin, and Manager environments, the platform mirrors how real businesses operate. Customers can self-book, administrators can control operations, and managers can run the business strategically using data rather than intuition. This implementation achieved <strong>100% elimination of double-bookings</strong>.
+✔ The implementation of the system fully digitised the business’s previously manual operations, transforming how appointments, customers, and staff were managed. Customer records that were once stored in paper files and spreadsheets were migrated into a centralised database, allowing staff to retrieve, update, and verify customer information instantly.
+
+✔ The online booking feature enabled customers to schedule appointments remotely through the customer portal, eliminating the need to visit the business in person. This improved accessibility and convenience led to an estimated 40% increase in new customer acquisition, driven by the ease of booking and improved service visibility.
+
+✔ Data quality was significantly improved through built-in duplicate-detection and validation logic. When new customers are added, the system checks for existing records and flags duplicates, allowing administrators to merge or delete redundant entries. This eliminated inconsistent customer records and improved the accuracy of reporting and communication.
+
+✔ The admin and manager dashboards gave management real-time visibility into operations. Appointment schedules update instantly as bookings are made, allowing technicians to always see their assigned work without delays or manual coordination. This reduced missed appointments, improved staff utilisation, and ensured smoother daily operations.
+
+✔ The reporting module provides historical and real-time insights into bookings, staff workload, and customer activity, enabling managers to make informed decisions based on data rather than guesswork. Together, these features converted the business from a fragmented, manual system into a fully integrated, data-driven operation that supports growth, efficiency, and better customer service.
+
             </p>
         </div>
 
@@ -171,13 +217,12 @@
             <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" class="resource-card">
                 <span class="resource-icon">📂</span>
                 <strong>View GitHub Portfolio</strong>
-                <p style="color:#888; font-size:0.85rem;">Full source code repository</p>
+                <p style="color:#a2006d; font-size:0.85rem;">Source Code & Documentation</p>
             </a>
-
             <a href="#ui-gallery" class="resource-card">
                 <span class="resource-icon">🖼️</span>
                 <strong>View UI Gallery</strong>
-                <p style="color:#888; font-size:0.85rem;">Interactive system walkthrough</p>
+                <p style="color:#a2006d; font-size:0.85rem;">A glimpse of what the system looks like</p>
             </a>
         </div>
     </div>
