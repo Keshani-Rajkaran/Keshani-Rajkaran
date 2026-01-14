@@ -2,162 +2,229 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keshani Rajkaran | Systems Development Specialist</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#050505;
-  --gold:#d4af37;
-  --glass:rgba(255,255,255,0.04);
-  --border:rgba(212,175,55,0.25);
-  --pink:#f1a7fe;
+:root{
+    --bg:#050505;
+    --gold:#d4af37;
+    --purple:#8a2be2; /* High-end Purple for Nav */
+    --glass:rgba(255,255,255,0.04);
+    --border:rgba(212,175,55,.2);
 }
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Inter;background:var(--bg);color:white}
 
-/* HERO */
-.hero-wrapper{height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,#111,#000)}
-.command-center{background:var(--glass);border:1px solid var(--border);padding:50px;max-width:850px;width:90%;text-align:center;border-radius:12px;backdrop-filter:blur(10px)}
-.avatar-box{width:200px;height:200px;border-radius:50%;border:3px solid var(--gold);overflow:hidden;margin:0 auto 25px}
-.avatar-box img{width:100%;height:100%;object-fit:cover}
+*{box-sizing:border-box; scroll-behavior: smooth;}
+body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x: hidden;}
 
-/* TEXT */
-h1{font-family:Playfair Display;font-size:3.5rem;margin:0}
-.typewriter-box{color:var(--gold);letter-spacing:4px;margin:10px 0}
+/* REVEAL TRANSITIONS */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* PROJECTS */
-.section{padding:90px 10%;max-width:1400px;margin:auto}
-.project-container{display:grid;grid-template-columns:1.4fr .6fr;gap:70px}
+/* HERO SPLIT SECTION */
+.hero-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 10% 50px;
+    background: radial-gradient(circle at bottom, #111, #000);
+}
 
-/* CONTENT */
-.project-details h3{font-family:Playfair Display;font-size:2.3rem;color:var(--gold)}
-.sub-heading{margin-top:40px;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:8px;text-transform:uppercase}
-p{color:#ccc;line-height:1.8}
-ul{list-style:none;padding:0}
-li{margin:14px 0;color:#ccc;line-height:1.7}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+}
 
-/* ARCHITECTURE */
-.architecture-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px;margin-top:30px}
-.diag-box{background:var(--glass);border:1px solid var(--border);padding:20px;text-align:center;border-radius:10px}
-.diag-box img{width:100%;cursor:zoom-in;transition:.4s}
-.diag-box img:hover{transform:scale(1.03);border:1px solid var(--gold)}
+.avatar-side img {
+    width: 100%;
+    max-width: 320px;
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    filter: grayscale(20%);
+}
 
-/* UI GALLERY */
-.ui-scroll{display:flex;gap:30px;overflow-x:auto;padding-bottom:15px}
-.ui-scroll::-webkit-scrollbar{height:10px}
-.ui-scroll::-webkit-scrollbar-thumb{background:var(--gold);border-radius:20px}
-.ui-card{min-width:48%;background:var(--glass);border:1px solid var(--border);padding:15px;border-radius:10px;text-align:center}
-.ui-card img{width:100%;border-radius:8px;cursor:zoom-in;transition:.4s}
-.ui-card img:hover{transform:scale(1.08)}
+.info-side h1 { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; }
+.role-tag { color: var(--gold); letter-spacing: 5px; font-weight: 600; margin: 10px 0; display: block; }
 
-/* SIDEBAR */
-.resource-sidebar{position:sticky;top:100px;display:flex;flex-direction:column;gap:25px}
-.resource-card{background:var(--glass);border:1px solid var(--border);padding:35px;border-radius:12px;text-align:center;text-decoration:none;color:white;transition:.4s}
-.resource-card:hover{border-color:var(--gold);transform:translateY(-6px)}
-.resource-icon{font-size:3rem;margin-bottom:15px}
-.contact-card{border:2px solid var(--pink)}
-.contact-card a{color:var(--pink);display:block;margin-top:10px;text-decoration:none}
+/* PURPLE NAV BUTTONS */
+.nav-container { display: flex; gap: 15px; margin-top: 30px; }
+.nav-btn {
+    text-decoration: none;
+    color: white;
+    padding: 12px 25px;
+    border: 1px solid var(--purple);
+    background: rgba(138, 43, 226, 0.1);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+.nav-btn:hover { background: var(--purple); box-shadow: 0 0 15px var(--purple); transform: translateY(-3px); }
+
+/* PROJECTS SECTION */
+.section { padding: 80px 10%; max-width: 1400px; margin: auto; }
+.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
+
+h2, h3 { font-family: 'Playfair Display'; }
+.gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
+
+ul { padding: 0; list-style: none; }
+li { margin: 15px 0; color: #ccc; line-height: 1.7; }
+
+/* SIDEBAR DIRECTORY */
+.sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+.folder-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.folder-card:hover { border-color: var(--gold); transform: translateX(5px); }
+
+.folder-content {
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+}
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gallery-grid img { width: 100%; border: 1px solid var(--border); cursor: zoom-in; }
+
+/* CONTACT CARD */
+.contact-card {
+    background: var(--glass);
+    border: 1px solid var(--purple);
+    padding: 25px;
+    border-radius: 8px;
+}
+.contact-link { color: white; text-decoration: none; display: flex; align-items: center; gap: 15px; margin: 10px 0; transition: 0.3s; }
+.contact-link:hover { color: var(--purple); }
+
+/* LIGHTBOX */
+#lightbox {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); display: none; align-items: center;
+    justify-content: center; z-index: 3000;
+}
+#lightbox img { max-width: 90%; max-height: 85%; border: 2px solid var(--gold); }
 </style>
 </head>
-
 <body>
 
+<div id="lightbox" onclick="this.style.display='none'"><img></div>
+
 <section class="hero-wrapper">
-<div class="command-center">
-<div class="avatar-box"><img src="img/Keshani Profile Picture.jpeg"></div>
-<h1>KESHANI <span style="color:var(--gold)">RAJKARAN</span></h1>
-<div class="typewriter-box" id="typewriter"></div>
-<p>Enterprise systems developer focused on transforming manual operations into scalable digital infrastructure.</p>
-</div>
+    <div class="hero-grid">
+        <div class="avatar-side">
+            <img src="img/Keshani Profile Picture.jpeg" alt="Keshani Rajkaran">
+        </div>
+        <div class="info-side">
+            <h1>KESHANI <span style="color:var(--gold)">RAJKARAN</span></h1>
+            <span class="role-tag">SYSTEMS DEVELOPMENT SPECIALIST</span>
+            <p style="color: #bbb; line-height: 1.8; max-width: 600px;">
+                Hello World. I am Keshani. I am a Systems Development Specialist graduating from UKZN in May 2026. 
+                I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue.
+            </p>
+            <div class="nav-container">
+                <a href="#projects" class="nav-btn">My Projects</a>
+                <a href="#about" class="nav-btn">Expertise</a>
+                <a href="#contact" class="nav-btn">Contact</a>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="section">
-<div class="project-container">
+<section id="projects" class="section reveal">
+    <h2 style="text-align:center; font-size: 3rem; margin-bottom: 60px;">Projects Portfolio</h2>
+    
+    <div class="project-layout">
+        <div class="doc-side">
+            <h3 class="gold-line">Project 1: ERP Scheduling System for McKaylan Motor Engineering C.C.</h3>
+            
+            <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings, unrecorded billable hours, and limited customer growth.</p>
 
-<div class="project-details">
+            <p><strong>Engineered Solution:</strong> I designed a centralized multi-tier ERP ecosystem that automates the appointment lifecycle—from remote customer self-service to strategic managerial reporting.</p>
 
-<h3>ERP Scheduling System – Mckaylan Motor Engineering</h3>
+            <h3 class="gold-line">Security Architecture</h3>
+            <ul>
+                <li>✔ <strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
+                <li>✔ <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
+                <li>✔ <strong>Validation Logic:</strong> Server-side sanitization and duplicate detection to ensure data integrity.</li>
+                <li>✔ <strong>Access Blocked Protocols:</strong> Automatic session termination upon detecting unauthorized activity.</li>
+                <li>✔ <strong>Temporal Rules:</strong> Logic that protects the integrity of historical records while allowing future scheduling.</li>
+            </ul>
 
-<div class="sub-heading">Business Problem</div>
-<p>
-The business relied on paper diaries, phone calls, and spreadsheets to manage bookings, staff, and customer records.
-Customers had to physically visit the workshop to make appointments, creating friction and limiting growth.
-Double-bookings, lost customer information, and untracked billable work caused revenue leakage and operational chaos.
-</p>
+            <h3 class="gold-line">Business Impact</h3>
+            <p>Achieved <strong>100% elimination of double-bookings</strong>, optimized resource allocation for staff, and provided management with instant visibility into seasonal revenue trends.</p>
+        </div>
 
-<div class="sub-heading">What I Built</div>
-<ul>
-<li>✔ Customer self-service portal allowing remote bookings and account access</li>
-<li>✔ Admin dashboard for appointment creation, customer management, and system control</li>
-<li>✔ Manager dashboard with reporting, staff allocation, and operational oversight</li>
-<li>✔ Centralised database eliminating duplicate customer records</li>
-<li>✔ Real-time scheduling engine synchronised across all roles</li>
-</ul>
+        <div class="sidebar-directory">
+            <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" style="text-decoration:none;">
+                <div class="folder-card">
+                    <span style="font-size: 1.5rem;">📂</span> <strong>View GitHub Portfolio</strong>
+                </div>
+            </a>
 
-<div class="sub-heading">Security Architecture</div>
-<ul>
-<li>✔ Role-Based Access Control (Admin, Manager, Customer)</li>
-<li>✔ Encrypted authentication and session protection</li>
-<li>✔ Server-side validation and duplicate detection</li>
-<li>✔ Automatic access blocking on unauthorized activity</li>
-<li>✔ Temporal rules protecting historical data integrity</li>
-</ul>
+            <div class="folder-card" onclick="toggleFolder('arch-folder')">
+                <span>📐</span> <strong>System Architecture</strong>
+                <div id="arch-folder" class="folder-content">
+                    <div class="gallery-grid">
+                        <img src="img/Context Level dfd.png" onclick="zoom(this.src)">
+                        <img src="img/Level 0 DFD.png" onclick="zoom(this.src)">
+                    </div>
+                </div>
+            </div>
 
-<div class="sub-heading">System Architecture</div>
-<div class="architecture-grid">
-<div class="diag-box"><img src="img/Context Level dfd.png"><p>Context Level DFD</p></div>
-<div class="diag-box"><img src="img/Level 0 DFD.png"><p>Level 0 DFD</p></div>
-</div>
+            <div class="folder-card" onclick="toggleFolder('ui-folder')">
+                <span>🖥️</span> <strong>UI Gallery</strong>
+                <div id="ui-folder" class="folder-content">
+                    <div class="gallery-grid">
+                        <img src="img/Home.png" onclick="zoom(this.src)">
+                        <img src="img/Manager Dashboard.png" onclick="zoom(this.src)">
+                        <img src="img/Seasonal Report Dashboard.png" onclick="zoom(this.src)">
+                    </div>
+                </div>
+            </div>
 
-<div class="sub-heading">UI Gallery</div>
-<div class="ui-scroll">
-<div class="ui-card"><img src="img/Home.png"></div>
-<div class="ui-card"><img src="img/Book_Appointment.png"></div>
-<div class="ui-card"><img src="img/Manager Dashboard.png"></div>
-<div class="ui-card"><img src="img/Staff Intelligence Dashboard.png"></div>
-<div class="ui-card"><img src="img/Seasonal Report Dashboard.png"></div>
-<div class="ui-card"><img src="img/Customer Intelligence Report Dashboard.png"></div>
-<div class="ui-card"><img src="img/About.png"></div>
-<div class="ui-card"><img src="img/Reviews.png"></div>
-<div class="ui-card"><img src="img/Schedulung Report Dashboard.png"></div>
-</div>
-
-<div class="sub-heading">Measured Business Outcomes</div>
-<ul>
-<li>✔ Elimination  of double bookings</li>
-<li>✔ Approximate 40% increase in customer acquisition through online booking. The online booking feature enabled customers to schedule appointments remotely through the customer portal, eliminating the need to visit the business in person. </li>
-<li>✔ Appointment schedules update instantly as bookings are made, allowing technicians to always see their assigned work without delays or manual coordination. This reduced missed appointments, improved staff utilisation, and ensured smoother daily operations.</li>
-<li>✔ Duplicate customers eliminated via database validation</li>
-<li>he admin and manager dashboards gave management real-time visibility into operations. Appointment schedules update instantly as bookings are made, allowing technicians to always see their assigned work without delays or manual coordination. This reduced missed appointments, improved staff utilisation, and ensured smoother daily operations.</li>
-<li>✔ Business fully transitioned from manual to digital operations</li>
-</ul>
-
-</div>
-
-<div class="resource-sidebar">
-<a class="resource-card" href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank"><span class="resource-icon">📂</span>GitHub Repository</a>
-<a class="resource-card"><span class="resource-icon">🧩</span>System Architecture</a>
-<a class="resource-card"><span class="resource-icon">🖼️</span>UI Gallery</a>
-<div class="resource-card contact-card">
-<a href="mailto:rajkaran.keshanir@gmail.com">rajkaran.keshanir@gmail.com</a>
-<a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank">LinkedIn</a>
-</div>
-</div>
-
-</div>
+            <div class="contact-card">
+                <p style="color:var(--purple); font-weight: bold; margin-top:0;">CONNECT</p>
+                <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-link">📧 Email Keshani</a>
+                <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
-const words=["I ANALYZE","I DESIGN","I BUILD","I OPTIMIZE"];
-let i=0,j=0;
-(function type(){
-document.getElementById("typewriter").innerText=words[i].slice(0,++j);
-if(j==words[i].length){setTimeout(()=>{j=0;i=(i+1)%words.length},1200);}
-setTimeout(type,120);
-})();
+function toggleFolder(id){
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+}
+function zoom(src){
+    const lb = document.getElementById("lightbox");
+    lb.style.display = "flex";
+    lb.querySelector("img").src = src;
+}
+
+/* SCROLL REVEAL LOGIC */
+window.addEventListener('scroll', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(reveal => {
+        const windowHeight = window.innerHeight;
+        const revealTop = reveal.getBoundingClientRect().top;
+        if (revealTop < windowHeight - 100) reveal.classList.add('active');
+    });
+});
 </script>
 
 </body>
