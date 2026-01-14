@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -17,6 +17,7 @@
 }
 
 *{box-sizing:border-box; scroll-behavior: smooth;}
+/* Updated base font size and line height for readability */
 body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 1.15rem; line-height: 1.8; overflow-x: hidden;}
 
 /* --- FLOATING VERTICAL NAVIGATION WITH LABELS --- */
@@ -43,33 +44,26 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 /* HERO */
-.hero-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 10% 0; }
+.hero-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
 .hero-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; max-width: 1200px; }
-.avatar-side img { 
-    width: 100%; 
-    max-height: 520px; 
-    object-fit: contain; 
-    border: 2px solid var(--gold); 
-    border-radius: 8px; 
-    box-shadow: 0 0 40px rgba(212,175,55,0.15); 
-}
-.info-side h1 { font-family: 'Playfair Display'; font-size: 4.5rem; white-space: nowrap; margin: 0; }
+.avatar-side img { width: 100%; border: 2px solid var(--gold); border-radius: 5px; box-shadow: 0 0 40px rgba(212,175,55,0.1); }
+.info-side h1 { font-family: 'Playfair Display'; font-size: 4.5rem; margin: 0; }
 
-/* PROJECT LAYOUTS */
+/* PROJECT LAYOUTS - SIDEBAR SIZED UP TO 1.1fr */
 .section { padding: 120px 10%; max-width: 1400px; margin: auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.project-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 120px; align-items: start; }
-.gold-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; transition: all .6s cubic-bezier(.2,.8,.2,1); }
+.project-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; align-items: start; }
+.gold-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; }
 
 /* TIMELINE FEATURE */
 .timeline { border-left: 2px solid var(--purple); padding-left: 50px; position: relative; }
-.timeline-item { position: relative; margin-bottom: 80px; background: var(--glass); padding: 30px; border-radius: 10px; border: 1px solid rgba(138,43,226,0.2); transition: all .6s cubic-bezier(.2,.8,.2,1); }
+.timeline-item { position: relative; margin-bottom: 80px; background: var(--glass); padding: 30px; border-radius: 10px; border: 1px solid rgba(138,43,226,0.2); }
 .timeline-item::before { content: ""; position: absolute; left: -61px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 15px var(--purple); }
 
 /* TECH STACK CARDS */
 .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-.stack-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 12px; transition: all .6s cubic-bezier(.2,.8,.2,1); }
+.stack-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 12px; transition: 0.4s; }
 .stack-card:hover { border-color: var(--pink); transform: translateY(-10px); background: rgba(226, 80, 152, 0.05); }
-.stack-card h3 { color: var(--pink); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+.stack-card h3 { color: var(--pink); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
 
 /* CONTACT SECTION */
 .contact-hero { background: linear-gradient(to bottom, transparent, #0a0a0a); padding: 150px 10% 100px; text-align: center; }
@@ -77,41 +71,11 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
 .contact-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 30px var(--gold); }
 
 /* FOLDERS */
-.folder-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; transition: all .6s cubic-bezier(.2,.8,.2,1); }
-.folder-card:hover{ transform: translateY(-8px); border-color:var(--gold); }
-.folder-content { 
-    display: none; 
-    margin-top: 20px; 
-    background: rgba(0,0,0,0.6); 
-    padding: 20px; 
-    max-height: 700px; 
-    overflow-y: auto;
-}
-.folder-content img{
-    width:100%;
-    margin-bottom:25px;
-    border:1px solid var(--border);
-}
-
-/* HEADER NAVIGATION */
-header {position:fixed; top:0; width:100%; z-index:2000; backdrop-filter:blur(10px); background:rgba(0,0,0,.7); border-bottom:1px solid var(--border);}
-header div{max-width:1400px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:20px 10%;}
-header nav a{color:white; text-decoration:none; gap:40px;}
+.folder-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; }
+.folder-content { display: none; margin-top: 15px; background: rgba(0,0,0,0.5); padding: 15px; }
 </style>
 </head>
 <body>
-
-<header>
-  <div>
-    <strong style="color:var(--gold); letter-spacing:3px;">Keshani Rajkaran</strong>
-    <nav style="display:flex; gap:40px;">
-      <a href="#project-1">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#tech">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
 
 <div class="side-nav">
     <a href="#hero" class="active"><div class="dot"></div><span class="label">Home</span></a>
@@ -145,7 +109,155 @@ header nav a{color:white; text-decoration:none; gap:40px;}
     </div>
 </section>
 
-<!-- The rest of your sections stay exactly as before: project-1, project-2, experience, tech, recommendations, contact -->
+<section id="project-1" class="section reveal">
+    <div class="project-layout">
+        <div class="doc-side">
+            <h2 class="gold-line">PROJECT 01. ERP Scheduling Architecture</h2>
+            <p>Built for McKaylan Motor Engineering to solve chronic revenue leakage from manual paper-based scheduling.</p>
+            
+            <h3 style="color:var(--gold); margin-top: 40px;">Key Implementations</h3>
+            <ul style="padding-left: 20px;">
+               <li> <strong>Multi-Tier Architecture:</strong> Transitioned the business into a secure, centralized digital environment.</li>
+                <li><strong>Customer Self-Service Portal:</strong> Engineered a secure online portal for autonomous appointment management.</li>
+                <li><strong>Real-Time Technician Scheduling:</strong> Built a dynamic engine to track staff loads and prevent overlapping bookings.</li>
+                <li> <strong>Role-Based Access Control (RBAC):</strong> Hierarchical security model separating Admin, Manager, and Customer privileges.</li>
+                <li > <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private executive dashboards.</li>
+                <li > <strong>Server-Side Validation:</strong> Sanitization protocols and duplicate detection ensuring SQL database integrity.</li>
+                <li > <strong>Temporal Data Rules:</strong> Logic protecting historical records while allowing for future scheduling.</li>
+                <li > <strong>Centralized CRM & Analytics:</strong> Integrated module to track service history and improve client retention.</li>
+            </ul>
+
+            <h3 style="color:var(--gold); margin-top: 40px;">Business Impact & Outcomes</h3>
+            <p style="background: rgba(212,175,55,0.05); padding: 20px; border-left: 3px solid var(--gold);">
+                Achieved <strong>100% elimination of double-bookings</strong>. Increased new customer acquisition by ~40% through remote self-service portal integration. Completetly transformed manual processes to digitisation.The implementation of the ERP Scheduling System resulted in the 100% elimination of double-bookings, effectively solving the revenue leakage caused by fragmented manual record-keeping. By implementing a secure, customer-facing self-service portal, I facilitated a ~40% increase in new client acquisition and significantly optimized internal resource allocation. This digital transformation provided management with instant visibility into billable hours and technician performance, shifting the organization from reactive firefighting to a streamlined, data-driven operational model. 
+            </p>
+        </div>
+        <div class="sidebar-directory">
+            <div class="folder-card">
+                <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" style="color:white; text-decoration:none;">📂 View Source Repository</a>
+            </div>
+            <div class="folder-card" onclick="toggle('p1-arch')">📂 System Architecture (DFDs)
+                <div id="p1-arch" class="folder-content">
+                    <img src="img/Context Level dfd.png" width="100%" onclick="zoom(this.src, 'img')">
+                    <img src="img/Level 0 DFD.png" width="100%" onclick="zoom(this.src, 'img')" style="margin-top:10px;">
+                </div>
+            </div>
+            <div class="folder-card" onclick="toggle('p1-ui')">🖥️ UI Gallery
+                <div id="p1-ui" class="folder-content">
+                   <img src="img/Home.png" width="100%" onclick="zoom(this.src, 'img')" title="Home Page" style="border: 1px solid var(--border);">
+                <img src="img/Manager Dashboard.png" width="100%" onclick="zoom(this.src, 'img')" title="Manager Analytics Dashboard" style="border: 1px solid var(--border);">
+                <img src="img/Staff Intelligence Dashboard.png" width="100%" onclick="zoom(this.src, 'img')" title="Staff Intelligence View" style="border: 1px solid var(--border);">
+                <img src="img/Book_Appointment.png" width="100%" onclick="zoom(this.src, 'img')" title="Booking Interface" style="border: 1px solid var(--border);">
+                <img src="img/Reviews.png" width="100%" onclick="zoom(this.src, 'img')" title="Customer Feedback Module" style="border: 1px solid var(--border);">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="project-2" class="section reveal">
+    <div class="project-layout">
+        <div class="doc-side">
+            <h2 class="gold-line">02. BI Seasonal Analytics Engine</h2>
+            <p>For the Enterprise Seasonal Analytics system, I designed and implemented a logic-driven Business Intelligence engine using C# and ASP.NET to transform historical transactional records into performing executive insights. I implemented complex data aggregation modules that generate Daily Service Demand Trends and Workforce Efficiency Analytics, allowing management to stress-test technician loads and track throughput rates across specific business cycles. A core innovation of this project was the development of the Strategic Reccomendations system, which utilizes logic-driven analysis of client acquisition and retention ratios to automate high-level business recommendations, such as referral incentives or proactive workforce scaling. By digitizing these analytical workflows into professional, print-ready reports, the system provides management with Data-Driven Strategic Intuition, enabling them to align staffing and growth strategies with forecasted seasonal peaks three months in advance.</p>
+            
+            <h3 style="color:var(--gold); margin-top: 40px;">Business Impact</h3>
+            <p style="background: rgba(138,43,226,0.05); padding: 20px; border-left: 3px solid var(--purple);">
+                Provided <strong>Data-Driven Strategic Intuition</strong>, allowing management to align technician staffing with forecasted Easter and Festive travel peaks 3 months in advance.
+            </p>
+        </div>
+        <div class="sidebar-directory">
+            <div class="folder-card" onclick="toggle('p2-vid')">🎬 System Demo Video
+                <div id="p2-vid" class="folder-content">
+                    <video src="project 2 vid demo/Seasonal Performance System Video.mp4" controls width="100%"></video>
+                </div>
+            </div>
+            <div class="folder-card">
+                <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System" target="_blank" style="color:white; text-decoration:none;">📂 View Source Repository</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="section reveal">
+    <h2 class="gold-line" style="text-align:center;">Professional Timeline</h2>
+    <div class="timeline" style="margin-top: 60px;">
+        <div class="timeline-item">
+            <span style="color:var(--gold); font-weight:bold; letter-spacing:2px;">MAY 2025 – JUNE 2025</span>
+            <h3>Forensic AI Strategy Analyst </strong> 🌟Star Performer </h3>
+            <p>Excelerate (Grant Thornton China & RIT)</p>
+            <ul style="color:#aaa; font-size: 1.05rem;">
+            <li>• Recognized as a Star Performer for exceptional analytical writing and innovative problem-solving in a global collaboration.</li>
+            <li>• Delivered high-impact technical briefings of AI-driven flowcharts to senior leadership to facilitate data-driven strategy.</li>
+            <li>• Engineered data-driven selection processes for ML algorithms, significantly improving fraud detection accuracy.</li>
+            <li>• Authored compliance reports to ensure AI forensics adhered to global regulatory standards.</li>
+            <li>• Designed integration strategies to embed AI-driven tools into core forensic investigation workflows.</li>
+            <li>• Led cross-cultural coordination with international teams to align complex AI initiatives with business objectives.</li>
+            </ul>
+        </div>
+        <div class="timeline-item">
+            <span style="color:var(--gold); font-weight:bold; letter-spacing:2px;">MAY 2025 – JULY 2025</span>
+            <h3>FNB App Academy Developer </strong> ⭐91% Distinction</h3>
+            <p>First National Bank, South Africa</p>
+            <p style="color:#aaa;">During the FNB App Academy, I achieved a 91% Distinction in an intensive, nationally competitive full-stack developer bootcamp. I mastered the design and deployment of modern applications using a technical stack of HTML, CSS, Python, and JavaScript. My specialization involved engineering front-end solutions with React and Tailwind CSS, while integrating secure back-end services through Firebase. By utilizing Agile methodologies and Design Thinking in collaborative sprints, I demonstrated a high capacity for rapid technical onboarding and the ability to bridge complex code with commercial business objectives.</p>
+        </div>
+    </div>
+</section>
+
+<section id="tech" class="section reveal">
+    <h2 class="gold-line" style="text-align:center;">Technical Matrix</h2>
+    <div class="stack-grid" style="margin-top: 60px;">
+        <div class="stack-card"><h3>Programming</h3><p>Python, JavaScript, C#, HTML, CSS</p></div>
+        <div class="stack-card"><h3>Frameworks</h3><p>React, Tailwind CSS, ASP.NET</p></div>
+        <div class="stack-card"><h3>Databases</h3><p>SQL Server, Firebase</p></div>
+        <div class="stack-card"><h3>Methodology</h3><p>Agile, Design Thinking, GitHub</p></div>
+    </div>
+</section>
+
+<section id="recommendations" class="section reveal">
+    <h2 class="gold-line" style="text-align:center;"> Recommendations</h2>
+    <div class="split-layout" style="margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        
+        <div class="timeline-item" style="margin-bottom:0; background: var(--glass); padding: 30px; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); background: #222;"></div>
+                <div>
+                    <strong style="color:var(--gold); display: block;">Sanjana Pithumbar</strong>
+                    <small style="color: #888;">Information Systems and Technology Graduate</small><br>
+                    <small style="color: #555;">January 13, 2026 | Worked together on the same team</small>
+                </div>
+            </div>
+            <p style="font-style: italic; color: #ccc; line-height: 1.6;">
+                "It was a true pleasure working with Keshani. She consistently delivers exceptional work and played a key role in the success of our project. Her creativity, combined with the skills to execute her ideas, makes her an invaluable asset to any team. I highly recommend her to any organization looking for someone reliable and talented."
+            </p>
+            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" style="color:var(--gold); font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px;">View on LinkedIn →</a>
+        </div>
+
+        <div class="timeline-item" style="margin-bottom:0; background: var(--glass); padding: 30px; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); background: #222;"></div>
+                <div>
+                    <strong style="color:var(--gold); display: block;">Suhail Ismail</strong>
+                    <small style="color: #888;">BCom Information Systems & Technology | UKZN</small><br>
+                    <small style="color: #555;">January 11, 2026 | Studied together</small>
+                </div>
+            </div>
+            <p style="font-style: italic; color: #ccc; line-height: 1.6;">
+                "Keshani is one of the most hardworking people I have come across. As someone who has collaborated with her in a project, I would say she is someone that ensures the outcome of any goal should be achieved as best as possible. I would recommend her to companies who are looking for enthusiastic, efficient and dedicated employees who have the potential of contributing excellence towards the mission and vision of any company she works in. If I have to start my own company, I would definitely employ her for her amazing professional personality and the ability to give it her best to ensure that the company stays consistently successful."
+            </p>
+            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" style="color:var(--gold); font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px;">View on LinkedIn →</a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="contact-hero reveal">
+    <h2 style="font-family:'Playfair Display'; font-size: 4rem; color:var(--gold);">Ready to Scale?</h2>
+    <p style="letter-spacing: 5px; color:#888; margin-bottom: 50px;">I am currently open to work for Systems Development/System Analyst and BI/Business Analyst roles.</p>
+    <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-btn">Email Me</a>
+    <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-btn">LinkedIn</a>
+    <a href="https://github.com/Keshani-Rajkaran" target="_blank" class="contact-btn">GitHub Portfolio</a>
+</section>
 
 <script>
 function toggle(id){ const el=document.getElementById(id); el.style.display=el.style.display==="block"?"none":"block"; }
