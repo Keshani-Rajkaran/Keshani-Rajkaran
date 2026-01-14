@@ -10,7 +10,7 @@
 :root{
     --bg:#050505;
     --gold:#d4af37;
-    --purple:#8a2be2; /* High-end Purple for Nav */
+    --purple:#8a2be2;
     --glass:rgba(255,255,255,0.04);
     --border:rgba(212,175,55,.2);
 }
@@ -46,7 +46,7 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
     max-width: 320px;
     border: 2px solid var(--gold);
     border-radius: 4px;
-    filter: grayscale(20%);
+    filter: grayscale(10%);
 }
 
 .info-side h1 { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; }
@@ -69,7 +69,7 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x:
 
 /* PROJECTS SECTION */
 .section { padding: 80px 10%; max-width: 1400px; margin: auto; }
-.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
+.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 100px; }
 
 h2, h3 { font-family: 'Playfair Display'; }
 .gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
@@ -78,7 +78,7 @@ ul { padding: 0; list-style: none; }
 li { margin: 15px 0; color: #ccc; line-height: 1.7; }
 
 /* SIDEBAR DIRECTORY */
-.sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; }
+.sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; align-self: start;}
 .folder-card {
     background: var(--glass);
     border: 1px solid var(--border);
@@ -91,11 +91,12 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
 
 .folder-content {
     display: none;
-    max-height: 300px;
+    max-height: 350px;
     overflow-y: auto;
     margin-top: 15px;
     background: rgba(0,0,0,0.4);
     padding: 10px;
+    border-radius: 4px;
 }
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .gallery-grid img { width: 100%; border: 1px solid var(--border); cursor: zoom-in; }
@@ -137,7 +138,7 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
             </p>
             <div class="nav-container">
                 <a href="#projects" class="nav-btn">My Projects</a>
-                <a href="#about" class="nav-btn">Expertise</a>
+                <a href="#expertise" class="nav-btn">Expertise</a>
                 <a href="#contact" class="nav-btn">Contact</a>
             </div>
         </div>
@@ -153,19 +154,18 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
             
             <p><strong>Business Problem:</strong> Fragmented paper diaries and manual spreadsheets led to chronic double-bookings, unrecorded billable hours, and limited customer growth.</p>
 
-            <p><strong>Engineered Solution:</strong> I designed and built a full ERP and scheduling system that replaced McKaylan Motor Engineering’s paper-based operations with a secure, data-driven digital platform.The system enables online customer bookings, real-time technician scheduling, centralised CRM, manager and admin dashboards, and automated reporting, all backed by a structured SQL database that prevents duplicate records and preserves historical data.With role-based security, live dashboards, and analytics, the platform eliminated double-bookings, improved data accuracy, gave management full operational visibility, and helped drive an estimated ~40% increase in customer acquisition through online self-service and improved efficiency. </p>
+            <p><strong>Engineered Solution:</strong> I designed and built a full ERP and scheduling system that replaced McKaylan Motor Engineering’s paper-based operations with a secure, data-driven digital platform. The system enables online customer bookings, real-time technician scheduling, centralised CRM, manager and admin dashboards, and automated reporting all backed by a structured SQL database that prevents duplicate records and preserves historical data.With role-based security, live dashboards, and analytics, the platform eliminated double-bookings, improved data accuracy, gave management full operational visibility, and helped drive an estimated ~40% increase in customer acquisition through online self-service and improved efficiency. </p>
 
             <h3 class="gold-line">Security Architecture</h3>
             <ul>
                 <li>✔ <strong>Role-Based Access Control (RBAC):</strong> Hierarchical separation of Admin, Manager, and Customer privileges.</li>
                 <li>✔ <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private dashboards.</li>
                 <li>✔ <strong>Validation Logic:</strong> Server-side sanitization and duplicate detection to ensure data integrity.</li>
-                <li>✔ <strong>Access Blocked Protocols:</strong> Automatic session termination upon detecting unauthorized activity.</li>
                 <li>✔ <strong>Temporal Rules:</strong> Logic that protects the integrity of historical records while allowing future scheduling.</li>
             </ul>
 
             <h3 class="gold-line">Business Impact</h3>
-            <p>Achieved <strong>~90% elimination of double-bookings</strong>, optimized resource allocation for staff, and provided management with instant visibility into seasonal revenue trends.</p>
+            <p>Achieved <strong>100% elimination of double-bookings</strong>, optimized resource allocation for staff, and provided management with instant visibility into seasonal revenue trends.</p>
         </div>
 
         <div class="sidebar-directory">
@@ -188,24 +188,58 @@ li { margin: 15px 0; color: #ccc; line-height: 1.7; }
             <div class="folder-card" onclick="toggleFolder('ui-folder')">
                 <span>🖥️</span> <strong>UI Gallery</strong>
                 <div id="ui-folder" class="folder-content">
+                    <p style="font-size: 0.7rem; color: var(--gold); margin-bottom: 8px;">• Click to zoom •</p>
                     <div class="gallery-grid">
                         <img src="img/Home.png" onclick="zoom(this.src)">
                         <img src="img/Book_Appointment.png" onclick="zoom(this.src)">
                         <img src="img/Reviews.png" onclick="zoom(this.src)">
                         <img src="img/Manager Dashboard.png" onclick="zoom(this.src)">
                         <img src="img/Customer Intelligence Report Dashboard.png" onclick="zoom(this.src)">
-                        "img/Staff Intelligence Dashboard.png" onclick="zoom(this.src)">
+                        <img src="img/Staff Intelligence Dashboard.png" onclick="zoom(this.src)">
                         <img src="img/Seasonal Report Dashboard.png" onclick="zoom(this.src)">
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
+    <div class="project-layout reveal">
+        <div class="doc-side">
+            <h4 style="color:var(--gold); letter-spacing: 3px; margin:0;">PROJECT 2</h4>
+            <h3 class="gold-line">Business Intelligence: Seasonal Reporting Engine</h3>
+            
+            <p><strong>Business Problem:</strong> Management lacked a way to forecast demand or track workforce efficiency across different seasons, leading to misaligned staffing and missed growth opportunities.</p>
+
+            <p><strong>Engineered Solution:</strong> I architected a specialized reporting engine that aggregates historical transaction data into visual performance metrics. This system allows managers to select specific business seasons and years to generate "Strategic Verdicts"—automated recommendations based on client acquisition and retention data.</p>
+
+            <h3 class="gold-line">Core Functionalities</h3>
+            <ul>
+                <li>📊 <strong>Demand Forecasting:</strong> Visual analysis of operational volume (Demand) across seasonal cycles.</li>
+                <li>👥 <strong>Workforce Analysis:</strong> Detailed tracking of technician efficiency and workload stress-testing.</li>
+                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven insights that suggest referral incentives or advanced training needs.</li>
+                <li>🖨️ <strong>Report Digitization:</strong> High-fidelity print-ready reports for executive stakeholders.</li>
+            </ul>
+
+            <h3 class="gold-line">Business Impact</h3>
+            <p>Provided management with <strong>data-driven intuition</strong>, allowing them to proactively hire or train staff 3 months before peak seasons, directly supporting long-term scalability.</p>
+        </div>
+
+        <div class="sidebar-directory" id="contact">
             <div class="contact-card">
                 <p style="color:var(--purple); font-weight: bold; margin-top:0;">CONNECT</p>
                 <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-link">📧 Email Keshani</a>
                 <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
             </div>
         </div>
+    </div>
+</section>
+
+<section id="expertise" class="section reveal">
+    <h2 style="text-align:center; font-size: 3rem; margin-bottom: 60px;">Core Expertise</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div class="folder-card"><strong>Development</strong><p>C#, .NET Core, SQL Server, JavaScript</p></div>
+        <div class="folder-card"><strong>Systems Analysis</strong><p>DFDs, ERDs, Logic Mapping, ERP Design</p></div>
+        <div class="folder-card"><strong>BI & Reporting</strong><p>Data Aggregation, Visualization, Strategic Analysis</p></div>
     </div>
 </section>
 
@@ -220,7 +254,6 @@ function zoom(src){
     lb.querySelector("img").src = src;
 }
 
-/* SCROLL REVEAL LOGIC */
 window.addEventListener('scroll', () => {
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(reveal => {
