@@ -12,112 +12,94 @@
     --gold:#d4af37;
     --purple:#8a2be2;
     --pink:#e25098;
-    --glass:rgba(255,255,255,0.04);
-    --border:rgba(212,175,55,.2);
+    --glass:rgba(255,255,255,0.06);
+    --border:rgba(212,175,55,.25);
 }
 
 *{box-sizing:border-box; scroll-behavior: smooth;}
 body{margin:0; background:var(--bg); color:white; font-family:Inter; overflow-x: hidden;}
 
-/* REVEAL TRANSITIONS */
-.reveal { opacity: 0; transform: translateY(50px); transition: all 1s ease-out; }
+/* --- FLOATING VERTICAL NAVIGATION --- */
+.side-nav {
+    position: fixed; left: 30px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 20px; z-index: 1000;
+}
+.side-nav a {
+    width: 12px; height: 12px; border-radius: 50%; border: 1px solid var(--gold);
+    transition: 0.3s; position: relative;
+}
+.side-nav a:hover, .side-nav a.active { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
+.side-nav a span {
+    position: absolute; left: 25px; top: -5px; font-size: 0.6rem; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 2px; opacity: 0; transition: 0.3s; pointer-events: none;
+}
+.side-nav a:hover span { opacity: 1; }
+
+/* --- REVEAL ENGINE --- */
+.reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); padding-bottom: 100px; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* HERO SECTION */
-.hero-wrapper {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 10% 50px;
-    background: radial-gradient(circle at bottom, #111, #000);
-}
+/* HERO */
+.hero-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
+.hero-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; max-width: 1200px; }
+.avatar-side img { width: 100%; border: 2px solid var(--gold); border-radius: 5px; box-shadow: 0 0 40px rgba(212,175,55,0.1); }
+.info-side h1 { font-family: 'Playfair Display'; font-size: 4.5rem; margin: 0; }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 50px;
-    align-items: center;
-    max-width: 1100px;
-}
+/* PROJECT LAYOUTS */
+.section { padding: 120px 10%; max-width: 1400px; margin: auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.project-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 100px; align-items: start; }
+.gold-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; }
 
-.avatar-side img {
-    width: 100%;
-    max-width: 320px;
-    border: 2px solid var(--gold);
-    border-radius: 4px;
-}
+/* TIMELINE FEATURE */
+.timeline { border-left: 2px solid var(--purple); padding-left: 50px; position: relative; }
+.timeline-item { position: relative; margin-bottom: 80px; background: var(--glass); padding: 30px; border-radius: 10px; border: 1px solid rgba(138,43,226,0.2); }
+.timeline-item::before { content: ""; position: absolute; left: -61px; top: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 15px var(--purple); }
 
-.info-side h1 { font-family: 'Playfair Display'; font-size: 4rem; margin: 0; }
-.role-tag { color: var(--gold); letter-spacing: 5px; font-weight: 600; margin: 10px 0; display: block; }
+/* TECH STACK CARDS */
+.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+.stack-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 12px; transition: 0.4s; }
+.stack-card:hover { border-color: var(--pink); transform: translateY(-10px); background: rgba(226, 80, 152, 0.05); }
+.stack-card h3 { color: var(--pink); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
 
-/* NAV BUTTONS */
-.nav-container { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
-.nav-btn {
-    text-decoration: none; color: white; padding: 10px 18px;
-    border: 1px solid var(--purple); background: rgba(138, 43, 226, 0.1);
-    font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; transition: 0.4s;
-}
-.nav-btn:hover { background: var(--purple); box-shadow: 0 0 15px var(--purple); transform: translateY(-3px); }
+/* CONTACT SECTION */
+.contact-hero { background: linear-gradient(to bottom, transparent, #0a0a0a); padding: 150px 10% 100px; text-align: center; }
+.contact-btn { display: inline-block; padding: 20px 50px; border: 1px solid var(--gold); color: white; text-decoration: none; letter-spacing: 5px; transition: 0.5s; font-size: 0.8rem; margin: 20px; }
+.contact-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 30px var(--gold); }
 
-/* LAYOUTS */
-.section { padding: 80px 10%; max-width: 1400px; margin: auto; }
-.project-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; margin-bottom: 120px; }
-.split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-
-h2, h3 { font-family: 'Playfair Display'; }
-.gold-line { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--gold); }
-
-ul { padding: 0; list-style: none; }
-li { margin: 15px 0; color: #ccc; line-height: 1.7; position: relative; padding-left: 20px; }
-li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; font-weight: bold; }
-
-/* DIRECTORY SIDEBAR */
-.sidebar-directory { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 20px; align-self: start; }
-.folder-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-.folder-card:hover { border-color: var(--gold); transform: translateX(5px); }
-.folder-content { display: none; max-height: 400px; overflow-y: auto; margin-top: 15px; background: rgba(0,0,0,0.4); padding: 10px; }
-.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.gallery-grid img, video { width: 100%; border: 1px solid var(--border); cursor: pointer; }
-
-/* RECOMMENDATIONS */
-.rec-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 12px; margin-bottom: 20px; }
-.rec-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-.rec-avatar { width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); }
-
-/* LIGHTBOX */
-#lightbox {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.95); display: none; align-items: center;
-    justify-content: center; z-index: 5000;
-}
-#lightbox img, #lightbox video { max-width: 90%; max-height: 85%; border: 2px solid var(--gold); }
+/* FOLDERS */
+.folder-card { background: var(--glass); border: 1px solid var(--border); padding: 25px; border-radius: 8px; cursor: pointer; margin-bottom: 15px; }
+.folder-content { display: none; margin-top: 15px; background: rgba(0,0,0,0.5); padding: 15px; }
 </style>
 </head>
 <body>
 
-<div id="lightbox" onclick="this.style.display='none'">
-    <img id="lb-img" style="display:none;">
-    <video id="lb-video" controls style="display:none;"></video>
+<div class="side-nav">
+    <a href="#hero" class="active"><span>Home</span></a>
+    <a href="#project-1"><span>ERP System</span></a>
+    <a href="#project-2"><span>BI Analytics</span></a>
+    <a href="#experience"><span>Experience</span></a>
+    <a href="#tech"><span>Skills</span></a>
+    <a href="#recommendations"><span>Testimonials</span></a>
+    <a href="#contact"><span>Contact</span></a>
 </div>
 
-<section class="hero-wrapper">
+<div id="lightbox" onclick="this.style.display='none'" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); display:none; align-items:center; justify-content:center; z-index:9999;">
+    <img id="lb-img" style="max-width:90%; max-height:85%; border:2px solid var(--gold); display:none;">
+    <video id="lb-video" controls style="max-width:90%; border:2px solid var(--gold); display:none;"></video>
+</div>
+
+<section id="hero" class="hero-wrapper">
     <div class="hero-grid">
         <div class="avatar-side"><img src="img/Keshani Profile Picture.jpeg" alt="Keshani Rajkaran"></div>
         <div class="info-side">
-            <h1>KESHANI <span style="color:var(--gold)">RAJKARAN</span></h1>
-            <span class="role-tag">SYSTEMS DEVELOPMENT SPECIALIST</span>
-            <p style="color: #bbb; line-height: 1.8; max-width: 600px;">
+            <h1 class="reveal active">KESHANI <span style="color:var(--gold)">RAJKARAN</span></h1>
+            <span class="role-tag reveal active">SYSTEMS DEVELOPMENT SPECIALIST</span>
+            <p class="reveal active" style="color: #bbb; line-height: 2; margin-top: 20px; font-size: 1.1rem;">
                 Hello World. I am Keshani. I am a Systems Development Specialist graduating from UKZN in May 2026. I completed my degree in December 2025.  
                 I love transforming manual processes into digitalised solutions, improving customer retention and increasing revenue.
             </p>
-            <div class="nav-container">
-                <a href="#projects-header" class="nav-btn">My Projects</a>
-                <a href="#experience" class="nav-btn">Experience</a>
-                 <a href="#education" class="nav-btn">Education</a>
-                <a href="#tech-stack" class="nav-btn">Tech Stack</a>
-                <a href="#recommendations" class="nav-btn">Reccomendations</a>
-                <a href="#contact" class="nav-btn">Contact Me</a>
+            <div class="reveal active" style="margin-top: 40px;">
+                <a href="#project-1" class="contact-btn" style="margin: 0;">Explore Portfolio</a>
             </div>
         </div>
     </div>
@@ -126,38 +108,36 @@ li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; fo
 <section id="project-1" class="section reveal">
     <div class="project-layout">
         <div class="doc-side">
-            <h3 class="gold-line">Project 1: ERP Scheduling System - McKaylan Motor Engineering</h3>
-            <p><strong>Business Problem:</strong> Manual paper diaries led to chronic double-bookings and lost revenue visibility.</p>
-            <p><strong>Solution:</strong> For the McKaylan Motor Engineering ERP, I designed and implemented a multi-tier scheduling ecosystem that replaced fragmented manual diaries with a secure, automated digital hub. I implemented a Customer Self-Service Portal for remote bookings directly from the businesses website, an Admin Operations dashboard for booking and management of appointments, full lifecycle management of customer records, and a Managerial Decision Dashboard that transforms raw transactional data into actionable operational insights through a reporting system, and a system that allows managers to manage technicians and other staff. The system features a robust Staff & Resource Allocation Engine to manage technician workloads and a Lightweight CRM to track customer history and improve retention. Architecturally, I enforced high-level security through Role-Based Access Control (RBAC), encrypted authentication, and temporal logic to protect the integrity of historical data, ultimately achieving 100% elimination of double-bookings.</p>
-            <h3 class="gold-line">Security Architecture</h3>
-            <ul>
-                <li>✔ <strong>RBAC Hierarchy:</strong> Admin, Manager, and Customer privilege separation.</li>
-                <li>✔ <strong>Validation Logic:</strong> Server-side authorisation to ensure record integrity.</li>
-                <li>✔ <strong>Temporal Rules:</strong> Protecting historical data while managing future scheduling.</li>
+            <h2 class="gold-line">01. ERP Scheduling Architecture</h2>
+            <p>Built for McKaylan Motor Engineering to solve chronic revenue leakage from manual paper-based scheduling.</p>
+            
+            <h3 style="color:var(--gold); margin-top: 40px;">Key Implementations</h3>
+            <ul style="padding-left: 20px;">
+               <li> <strong>Multi-Tier Architecture:</strong> Transitioned the business into a secure, centralized digital environment.</li>
+                <li><strong>Customer Self-Service Portal:</strong> Engineered a secure online portal for autonomous appointment management.</li>
+                <li><strong>Real-Time Technician Scheduling:</strong> Built a dynamic engine to track staff loads and prevent overlapping bookings.</li>
+                <li> <strong>Role-Based Access Control (RBAC):</strong> Hierarchical security model separating Admin, Manager, and Customer privileges.</li>
+                <li > <strong>Encrypted Authentication:</strong> Multi-layer session protection to safeguard private executive dashboards.</li>
+                <li > <strong>Server-Side Validation:</strong> Sanitization protocols and duplicate detection ensuring SQL database integrity.</li>
+                <li > <strong>Temporal Data Rules:</strong> Logic protecting historical records while allowing for future scheduling.</li>
+                <li > <strong>Centralized CRM & Analytics:</strong> Integrated module to track service history and improve client retention.</li>
             </ul>
+
+            <h3 style="color:var(--gold); margin-top: 40px;">Business Impact & Outcomes</h3>
+            <p style="background: rgba(212,175,55,0.05); padding: 20px; border-left: 3px solid var(--gold);">
+                Achieved <strong>100% elimination of double-bookings</strong>. Increased new customer acquisition by ~40% through remote self-service portal integration. Completetly transformed manual processes to digitisation.The implementation of the ERP Scheduling System resulted in the 100% elimination of double-bookings, effectively solving the revenue leakage caused by fragmented manual record-keeping. By implementing a secure, customer-facing self-service portal, I facilitated a ~40% increase in new client acquisition and significantly optimized internal resource allocation. This digital transformation provided management with instant visibility into billable hours and technician performance, shifting the organization from reactive firefighting to a streamlined, data-driven operational model. 
+            </p>
         </div>
         <div class="sidebar-directory">
-            <a href="https://github.com/Keshani-Rajkaran/Mckaylan-Motor-Engineering-Scheduling-ERP-System" target="_blank" style="text-decoration:none;">
-                <div class="folder-card">📂 <strong>GitHub Repository</strong></div>
-            </a>
-            <div class="folder-card" onclick="toggleFolder('p1-arch')">📐 <strong>Architecture</strong>
+            <div class="folder-card" onclick="toggle('p1-arch')">📂 System Architecture (DFDs)
                 <div id="p1-arch" class="folder-content">
-                    <div class="gallery-grid">
-                        <img src="img/Context Level dfd.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Level 0 DFD.png" onclick="zoom(this.src, 'img')">
-                    </div>
+                    <img src="img/Context Level dfd.png" width="100%" onclick="zoom(this.src, 'img')">
+                    <img src="img/Level 0 DFD.png" width="100%" onclick="zoom(this.src, 'img')" style="margin-top:10px;">
                 </div>
             </div>
-            <div class="folder-card" onclick="toggleFolder('p1-ui')">🖥️ <strong>UI Gallery</strong>
+            <div class="folder-card" onclick="toggle('p1-ui')">🖥️ UI Gallery
                 <div id="p1-ui" class="folder-content">
-                    <div class="gallery-grid">
-                        <img src="img/Home.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Book_Appointment.png" onclick="zoom(this.src, 'img')">
-                         <img src="img/Reviews.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Seasonal Report Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Manager Dashboard.png" onclick="zoom(this.src, 'img')">
-                        <img src="img/Staff Intelligence Dashboard.png" onclick="zoom(this.src, 'img')">
-                    </div>
+                    <img src="img/Manager Dashboard.png" width="100%" onclick="zoom(this.src, 'img')">
                 </div>
             </div>
         </div>
@@ -167,157 +147,128 @@ li::before { content: "✔"; color: var(--gold); position: absolute; left: 0; fo
 <section id="project-2" class="section reveal">
     <div class="project-layout">
         <div class="doc-side">
-            <h3 class="gold-line">Project 2: Seasonal Analytics & Reporting System</h3>
-            <p><strong>Engineered Solution:</strong> In the Seasonal Analytics and Reporting project, I designed and implemented a specialized Business Intelligence  engine using C# logic and ASP.NET to solve the problem of seasonal demand misalignment. I implemented a data aggregation layer that generates high-fidelity </strong>Daily Service Demand Trends,</strong> Workforce Efficiency Analysis, </strong> and Client Acquisition & Retention Ratios. A core feature of this system is the generation of </strong> Strategic Verdicts which is automated, logic-driven executive recommendations that advise management on referral incentives or workforce scaling needs based on real-time utilization rates. By digitizing these complex analytical reports, the platform provides management with data-driven intuition, enabling proactive business scaling and optimized technician performance tracking.</h3>
-            <ul>
-                <li>📊 <strong>Demand Forecasting:</strong> Identified routine maintenance peaks via Daily Service Demand Trends.</li>
-                <li>💡 <strong>Strategic Verdicts:</strong> Logic-driven recommendations for referral and acquisition strategies.</li>
-            </ul>
+            <h2 class="gold-line">02. BI Seasonal Analytics Engine</h2>
+            <p>For the Enterprise Seasonal Analytics system, I designed and implemented a logic-driven Business Intelligence engine using C# and ASP.NET to transform historical transactional records into performing executive insights. I implemented complex data aggregation modules that generate Daily Service Demand Trends and Workforce Efficiency Analytics, allowing management to stress-test technician loads and track throughput rates across specific business cycles. A core innovation of this project was the development of the Strategic Reccomendations system, which utilizes logic-driven analysis of client acquisition and retention ratios to automate high-level business recommendations, such as referral incentives or proactive workforce scaling. By digitizing these analytical workflows into professional, print-ready reports, the system provides management with Data-Driven Strategic Intuition, enabling them to align staffing and growth strategies with forecasted seasonal peaks three months in advance.</p>
+            
+            <h3 style="color:var(--gold); margin-top: 40px;">Business Impact</h3>
+            <p style="background: rgba(138,43,226,0.05); padding: 20px; border-left: 3px solid var(--purple);">
+                Provided <strong>Data-Driven Strategic Intuition</strong>, allowing management to align technician staffing with forecasted Easter and Festive travel peaks 3 months in advance.
+            </p>
         </div>
         <div class="sidebar-directory">
-            <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/tree/main" target="_blank" style="text-decoration:none;">
-                <div class="folder-card">📂 <strong>GitHub Repository</strong></div>
-            </a>
-            <div class="folder-card" onclick="toggleFolder('p2-docs')">📄 <strong>Strategic Report</strong>
-                <div id="p2-docs" class="folder-content">
-                    <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System/blob/main/documents/Seasonal%20Performance%20Report%204.pdf" target="_blank" style="color:var(--gold);">Open Performance PDF →</a>
+            <div class="folder-card" onclick="toggle('p2-vid')">🎬 System Demo Video
+                <div id="p2-vid" class="folder-content">
+                    <video src="project 2 vid demo/Seasonal Performance System Video.mp4" controls width="100%"></video>
                 </div>
             </div>
-            <div class="folder-card" onclick="toggleFolder('p2-vid')">🎬 <strong>Demo Video</strong>
-                <div id="p2-vid" class="folder-content">
-                    <video src="project 2 vid demo/Seasonal Performance System Video.mp4" controls></video>
-                </div>
+            <div class="folder-card">
+                <a href="https://github.com/Keshani-Rajkaran/Enterprise-Seasonal-Analytics-Reporting-System" target="_blank" style="color:white; text-decoration:none;">📂 View Source Repository</a>
             </div>
         </div>
     </div>
 </section>
 
 <section id="experience" class="section reveal">
-    <div class="split-layout">
-        
-        <div class="experience-side">
-            <h2 class="gold-line">Professional Experience</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <span class="star-tag">★ STAR PERFORMER RECOGNITION</span>
-                    <h3>Forensic AI Strategy Analyst</h3>
-                    <p style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">Excelerate (Grant Thornton China & RIT) | May 2025 – June 2025</p>
-                    <ul style="padding: 0; list-style: none; font-size: 0.95rem; color: #ccc;">
-                        <li>• <strong>Executive Technical Briefing:</strong> Delivered high-impact presentations of AI-driven flowcharts to senior leadership, facilitating data-driven execution.</li>
-                        <li>• <strong>Operational Optimization:</strong> Engineered an ML algorithm selection process, significantly improving fraud detection accuracy.</li>
-                        <li>• <strong>Regulatory & Risk Leadership:</strong> Authored compliance reports identifying legal gaps to ensure AI forensics adhered to global standards.</li>
-                        <li>• <strong>Systems Integration:</strong> Designed strategies to embed AI-driven tools into forensic processes, streamlining investigation workflows.</li>
-                        <li>• <strong>Global Stakeholder Coordination:</strong> Led cross-cultural collaboration with international teams to align AI initiatives with business objectives.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="star-tag">91% DISTINCTION</span>
-                    <h3>Full Stack Developer Training</h3>
-                    <p style="color: var(--gold); font-size: 0.9rem; font-weight: 600;">First National Bank (FNB), South Africa | May 2025 – July 2025</p>
-                    <ul style="padding: 0; list-style: none; font-size: 0.95rem; color: #ccc;">
-                        <li>• <strong>Technical Mastery:</strong> Achieved a 91% Distinction in an intensive, nationally competitive developer bootcamp.</li>
-                        <li>• <strong>Stack Deployment:</strong> Mastered full-stack engineering utilizing HTML, CSS, Python, and JavaScript.</li>
-                        <li>• <strong>Modern Architecture:</strong> Specialized in React front-ends, Tailwind CSS UI/UX, and secure Firebase back-end services.</li>
-                        <li>• <strong>Agile Logic:</strong> Applied Design Thinking and Agile sprints to bridge complex code with commercial business objectives.</li>
-                    </ul>
-                </div>
-
-            </div>
+    <h2 class="gold-line" style="text-align:center;">Professional Timeline</h2>
+    <div class="timeline" style="margin-top: 60px;">
+        <div class="timeline-item">
+            <span style="color:var(--gold); font-weight:bold; letter-spacing:2px;">MAY 2025 – JUNE 2025</span>
+            <h3>Forensic AI Strategy Analyst </strong> 🌟Star Performer </h3>
+            <p>Excelerate (Grant Thornton China & RIT)</p>
+            <ul style="color:#aaa; font-size: 0.95rem;">
+            <li>• Recognized as a Star Performer for exceptional analytical writing and innovative problem-solving in a global collaboration.</li>
+            <li>• Delivered high-impact technical briefings of AI-driven flowcharts to senior leadership to facilitate data-driven strategy.</li>
+            <li>• Engineered data-driven selection processes for ML algorithms, significantly improving fraud detection accuracy.</li>
+            <li>• Authored compliance reports to ensure AI forensics adhered to global regulatory standards.</li>
+            <li>• Designed integration strategies to embed AI-driven tools into core forensic investigation workflows.</li>
+            <li>• Led cross-cultural coordination with international teams to align complex AI initiatives with business objectives.</li>
+            </ul>
         </div>
-
-        <div class="education-side" id="education">
-            <h2 class="gold-line">Education</h2>
-            <div class="folder-card" style="margin-bottom: 40px; cursor: default;">
-                <p style="color: var(--gold); margin: 0; font-weight: bold;">BCom: Information Systems</p>
-                <p style="margin: 5px 0;">University of KwaZulu-Natal (UKZN)</p>
-                <p style="font-size: 0.85rem; color: #888;">Degree Completed: 2025 | Graduation: May 2026</p>
-            </div>
-
-            <h2 class="gold-line">Technical Stack</h2>
-            
-            <h3 style="color: var(--pink); font-size: 1rem; margin-top: 10px;">Programming</h3>
-            <div class="tag-container">
-                <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">C#</span>
-                <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span>
-            </div>
-
-            <h3 style="color: var(--pink); font-size: 1rem; margin-top: 25px;">Frameworks & Tools</h3>
-            <div class="tag-container">
-                <span class="skill-tag">React</span><span class="skill-tag">Tailwind CSS</span><span class="skill-tag">ASP.NET</span>
-                <span class="skill-tag">Agile</span><span class="skill-tag">Design Thinking</span>
-            </div>
-
-            <h3 style="color: var(--pink); font-size: 1rem; margin-top: 25px;">Databases & Productivity</h3>
-            <div class="tag-container">
-                <span class="skill-tag">SQL Server</span><span class="skill-tag">Firebase</span><span class="skill-tag">GitHub</span>
-                <span class="skill-tag">Excel Proficiency</span><span class="skill-tag">Microsoft Suite</span>
-            </div>
-            
-            <div class="contact-card" style="margin-top: 40px; border-style: dashed; opacity: 0.8;">
-                <p style="font-size: 0.85rem; color: #ccc;">Recognized for exceptional analytical writing and critical thinking across global collaborations.</p>
-            </div>
+        <div class="timeline-item">
+            <span style="color:var(--gold); font-weight:bold; letter-spacing:2px;">MAY 2025 – JULY 2025</span>
+            <h3>FNB App Academy Developer </strong> ⭐91% Distinction</h3>
+            <p>First National Bank, South Africa</p>
+            <p style="color:#aaa;">During the FNB App Academy, I achieved a 91% Distinction in an intensive, nationally competitive full-stack developer bootcamp. I mastered the design and deployment of modern applications using a technical stack of HTML, CSS, Python, and JavaScript. My specialization involved engineering front-end solutions with React and Tailwind CSS, while integrating secure back-end services through Firebase. By utilizing Agile methodologies and Design Thinking in collaborative sprints, I demonstrated a high capacity for rapid technical onboarding and the ability to bridge complex code with commercial business objectives.</p>
         </div>
+    </div>
+</section>
 
+<section id="tech" class="section reveal">
+    <h2 class="gold-line" style="text-align:center;">Technical Matrix</h2>
+    <div class="stack-grid" style="margin-top: 60px;">
+        <div class="stack-card"><h3>Programming</h3><p>Python, JavaScript, C#, HTML, CSS</p></div>
+        <div class="stack-card"><h3>Frameworks</h3><p>React, Tailwind CSS, ASP.NET</p></div>
+        <div class="stack-card"><h3>Databases</h3><p>SQL Server, Firebase</p></div>
+        <div class="stack-card"><h3>Methodology</h3><p>Agile, Design Thinking, GitHub</p></div>
     </div>
 </section>
 
 <section id="recommendations" class="section reveal">
-    <h2 class="gold-line">Recommendations</h2>
-    <div class="rec-card">
-        <div class="rec-header">
-            <div class="rec-avatar" style="background: url('img/sanjana.jpg') center/cover;"></div>
-            <div><strong>Sanjana Pithumbar</strong><br><small>Information Systems Graduate</small></div>
+    <h2 class="gold-line" style="text-align:center;"> Recommendations</h2>
+    <div class="split-layout" style="margin-top: 60px;">
+        
+        <div class="timeline-item" style="margin-bottom:0; background: var(--glass); padding: 30px; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); background: #222;"></div>
+                <div>
+                    <strong style="color:var(--gold); display: block;">Sanjana Pithumbar</strong>
+                    <small style="color: #888;">Information Systems and Technology Graduate</small><br>
+                    <small style="color: #555;">January 13, 2026 | Worked together on the same team</small>
+                </div>
+            </div>
+            <p style="font-style: italic; color: #ccc; line-height: 1.6;">
+                "It was a true pleasure working with Keshani. She consistently delivers exceptional work and played a key role in the success of our project. Her creativity, combined with the skills to execute her ideas, makes her an invaluable asset to any team. I highly recommend her to any organization looking for someone reliable and talented."
+            </p>
+            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" style="color:var(--gold); font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px;">View on LinkedIn →</a>
         </div>
-        <p>"It was a true pleasure working with Keshani. She consistently delivers exceptional work and played a key role in the success of our project. Her creativity, combined with the skills to execute her ideas, makes her an invaluable asset to any team. I highly recommend her to any organization looking for someone reliable and talented."</p>
-    </div>
-    <div class="rec-card">
-        <div class="rec-header">
-            <div class="rec-avatar" style="background: url('img/suhail.jpg') center/cover;"></div>
-            <div><strong>Suhail Ismail</strong><br><small>BCom Information Systems & Tech</small></div>
+
+        <div class="timeline-item" style="margin-bottom:0; background: var(--glass); padding: 30px; border-radius: 12px;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--gold); background: #222;"></div>
+                <div>
+                    <strong style="color:var(--gold); display: block;">Suhail Ismail</strong>
+                    <small style="color: #888;">BCom Information Systems & Technology | UKZN</small><br>
+                    <small style="color: #555;">January 11, 2026 | Studied together</small>
+                </div>
+            </div>
+            <p style="font-style: italic; color: #ccc; line-height: 1.6;">
+                "Keshani is one of the most hardworking people I have come across. As someone who has collaborated with her in a project, I would say she is someone that ensures the outcome of any goal should be achieved as best as possible. I would recommend her to companies who are looking for enthusiastic, efficient and dedicated employees who have the potential of contributing excellence towards the mission and vision of any company she works in. If I have to start my own company, I would definitely employ her for her amazing professional personality and the ability to give it her best to ensure that the company stays consistently successful."
+            </p>
+            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" style="color:var(--gold); font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--gold); padding-bottom: 2px;">View on LinkedIn →</a>
         </div>
-        <p>Keshani is one of the most hardworking people I have come across. As someone who has collaborated with her in a project, I would say she is someone that ensures the outcome of any goal should be achieved as best as possible. I would recommend her to companies who are looking for enthusiastic, efficient and dedicated employees who have the potential of contributing excellence towards the mission and vision of any company she works in. If I have to start my own company, I would definitely employ her for her amazing professional personality and the ability to give it her best to ensure that the company stays consistently successful.</p>
+
     </div>
 </section>
 
-<section id="contact" class="section reveal" style="text-align:center;">
-    <div class="contact-card" style="max-width: 800px; margin: auto;">
-        <h2 style="color:var(--purple);">Let's Build the Future</h2>
-        <p>I am currently open to work for Systems Development/System Analyst and BI/Business Analyst roles.</p>
-        <div style="display:flex; justify-content:center; gap:20px; margin-top:30px;">
-            <a href="mailto:rajkaran.keshanir@gmail.com" class="nav-btn">📧 Email Me</a>
-            <a href="https://github.com/Keshani-Rajkaran/Keshani-Rajkaran" target="_blank" class="nav-btn">🐙 GitHub</a>
-            <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="nav-btn">🔗 LinkedIn</a>
-        </div>
-    </div>
+<section id="contact" class="contact-hero reveal">
+    <h2 style="font-family:'Playfair Display'; font-size: 4rem; color:var(--gold);">Ready to Scale?</h2>
+    <p style="letter-spacing: 5px; color:#888; margin-bottom: 50px;">I am currently open to work for Systems Development/System Analyst and BI/Business Analyst roles.</p>
+    <a href="mailto:rajkaran.keshanir@gmail.com" class="contact-btn">Email Me</a>
+    <a href="https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0" target="_blank" class="contact-btn">LinkedIn</a>
+    <a href="https://github.com/Keshani-Rajkaran" target="_blank" class="contact-btn">GitHub Portfolio</a>
 </section>
 
 <script>
-function toggleFolder(id){
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
-}
+function toggle(id){ const el=document.getElementById(id); el.style.display=el.style.display==="block"?"none":"block"; }
 function zoom(src, type){
-    const lb = document.getElementById("lightbox");
-    const img = document.getElementById("lb-img");
-    const vid = document.getElementById("lb-video");
-    lb.style.display = "flex";
-    if(type === 'img'){
-        img.src = src; img.style.display = "block"; vid.style.display = "none";
-    } else {
-        vid.src = src; vid.style.display = "block"; img.style.display = "none";
-        vid.play();
-    }
+    const lb=document.getElementById("lightbox"), img=document.getElementById("lb-img"), vid=document.getElementById("lb-video");
+    lb.style.display="flex";
+    if(type==='img'){ img.src=src; img.style.display="block"; vid.style.display="none"; }
+    else { vid.src=src; vid.style.display="block"; img.style.display="none"; vid.play(); }
 }
-window.addEventListener('scroll', () => {
-    const reveals = document.querySelectorAll('.reveal');
-    reveals.forEach(reveal => {
-        const windowHeight = window.innerHeight;
-        const revealTop = reveal.getBoundingClientRect().top;
-        if (revealTop < windowHeight - 150) reveal.classList.add('active');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            const id = entry.target.getAttribute('id');
+            document.querySelectorAll('.side-nav a').forEach(nav => {
+                nav.classList.toggle('active', nav.getAttribute('href') === '#' + id);
+            });
+        }
     });
-});
+}, { threshold: 0.2 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
