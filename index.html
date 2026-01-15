@@ -52,7 +52,7 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
 /* PROJECT LAYOUTS - SIDEBAR SIZED UP TO 1.1fr */
 .section { padding: 120px 10%; max-width: 1400px; margin: auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .project-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; align-items: start; }
-.gold-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; }
+.pink-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; }
 
 /* TIMELINE FEATURE */
 .timeline { border-left: 2px solid var(--purple); padding-left: 50px; position: relative; }
@@ -82,8 +82,9 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
     <a href="#project-1"><div class="dot"></div><span class="label">ERP System</span></a>
     <a href="#project-2"><div class="dot"></div><span class="label">BI Analytics</span></a>
     <a href="#experience"><div class="dot"></div><span class="label">Experience</span></a>
+    <a href="#education"><div class="dot"></div><span class="label">Education</span></a>
     <a href="#tech"><div class="dot"></div><span class="label">Skills</span></a>
-    <a href="#recommendations"><div class="dot"></div><span class="label">Testimonials</span></a>
+    <a href="#recommendations"><div class="dot"></div><span class="label">Reccomendations</span></a>
     <a href="#contact"><div class="dot"></div><span class="label">Contact</span></a>
 </div>
 
@@ -204,6 +205,33 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
     </div>
 </section>
 
+    <section id="education" class="section reveal">
+    <h2 class="gold-line" style="text-align:center;">Academic Foundation</h2>
+    <div style="display: flex; justify-content: center; margin-top: 60px;">
+        <div class="timeline-item" style="max-width: 800px; width: 100%; background: var(--glass); padding: 50px; border-radius: 15px; border: 1px solid var(--border); border-left: 4px solid var(--gold);">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                    <h3 style="font-family: 'Playfair Display'; font-size: 1.8rem; margin: 0; color: white;">Bachelor of Commerce</h3>
+                    <p style="color: var(--gold); font-weight: 600; letter-spacing: 1px; margin-top: 5px;">Information Systems and Technology & Marketing</p>
+                </div>
+                <div style="text-align: right;">
+                    <span style="display: block; color: white; font-weight: bold; font-size: 0.9rem;">DEGREE COMPLETE</span>
+                    <small style="color: #888;">Completed: December 2025</small>
+                </div>
+            </div>
+            
+            <p style="color: #ccc; line-height: 1.8;">
+                Graduated from the <strong>University of KwaZulu-Natal (UKZN)</strong> with a focus on transforming manual operational chaos into scalable, intelligent software systems. This degree provided the theoretical and practical foundation for my work in ERP architecture, business intelligence, business analysis, system analysis and full-stack development.
+            </p>
+            
+            <div style="margin-top: 30px; display: flex; gap: 15px; align-items: center;">
+                <div style="width: 40px; height: 40px; background: url('img/ukzn-logo-placeholder.png') center/contain no-repeat; opacity: 0.8;"></div>
+                <span style="font-size: 0.85rem; color: #888; letter-spacing: 1px; text-transform: uppercase;">University of KwaZulu-Natal</span>
+            </div>
+        </div>
+    </div>
+</section>
+    
 <section id="tech" class="section reveal">
     <h2 class="gold-line" style="text-align:center;">Technical Matrix</h2>
     <div class="stack-grid" style="margin-top: 60px;">
