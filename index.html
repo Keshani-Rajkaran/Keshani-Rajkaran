@@ -48,12 +48,30 @@ body{margin:0; background:var(--bg); color:white; font-family:Inter; font-size: 
 .hero-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; max-width: 1200px; }
 .avatar-side img { width: 100%; border: 2px solid var(--gold); border-radius: 5px; box-shadow: 0 0 40px rgba(212,175,55,0.1); }
 .info-side h1 { font-family: 'Playfair Display'; font-size: 4.5rem; margin: 0; }
+/* PROJECT LAYOUTS - EXTENDED LEFT COLUMN & ALIGNED SIDEBAR */
+.section { 
+    padding: 120px 8%; /* Slightly reduced side padding to gain more width */
+    max-width: 1600px; /* Increased from 1400px to allow the row to stretch further */
+    margin: auto; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
 
-/* PROJECT LAYOUTS - SIDEBAR SIZED UP TO 1.1fr */
-.section { padding: 120px 10%; max-width: 1400px; margin: auto; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.project-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 100px; align-items: start; }
-.pink-line { border-bottom: 2px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 2.2rem; }
+.project-layout { 
+    display: grid; 
+    /* First value (left side) is now significantly larger than the second (sidebar) */
+    grid-template-columns: 1.4fr 0.8fr; 
+    gap: 80px; 
+    align-items: start; 
+}
 
+.pink-line { 
+    border-bottom: 2px solid var(--border); 
+    padding-bottom: 15px; 
+    margin-bottom: 30px; 
+    color: var(--gold); 
+    font-family: 'Playfair Display'; 
+    font-size: 2.5rem; /* Increased size slightly to command the new wider space */
+}
 /* TIMELINE FEATURE */
 .timeline { border-left: 2px solid var(--purple); padding-left: 50px; position: relative; }
 .timeline-item { position: relative; margin-bottom: 80px; background: var(--glass); padding: 30px; border-radius: 10px; border: 1px solid rgba(138,43,226,0.2); }
