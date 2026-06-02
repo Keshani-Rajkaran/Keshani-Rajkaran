@@ -26,5 +26,5 @@ I specialize in solutions that drive digital efficiency and deliver measurable b
 ## 🔗 Connect With Me
 > 🔗 **Linkedin:** www.linkedin.com/in/keshani-rajkaran-0487bb1b0
 > 📩 **Email:** rajkaran.keshanir@gmail.com
-> 🌐 **Portfolio Link:** (website link goes here) 
+
 
