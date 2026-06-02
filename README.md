@@ -1,9 +1,9 @@
 
-# ✨ Keshani Rajkaran | Cloud & AI Engineer 💎
+# ✨ Keshani Rajkaran | Cloud Support Associate Engineer - iNTERn 💎
 
 ## Professional Focus:
 
-> Cloud Support Associate Engineer at **Amazon Web Services**, specialising in AI/ML solutions and cloud architecture.
+> Cloud Support Associate Engineer Intern at **Amazon Web Services**, specialising in AI/ML solutions and cloud architecture.
 > I design and deploy intelligent systems using generative AI, machine learning, and scalable cloud infrastructure. Trained through an intensive technical programme covering cloud architecture, AI/ML, Linux, security, and high availability — I bring hands-on experience working directly with enterprise customers and a track record of award-winning technical delivery.
 
 ---
