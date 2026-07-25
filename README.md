@@ -80,7 +80,7 @@ University of KwaZulu-Natal (UKZN) | Completed December 2025
 
 ## 🔗 Connect With Me
 
-> 🌐 **Portfolio:** [keshani-rajkaran.github.io](https://keshani-rajkaran.github.io)
+> 🌐 **Portfolio:** https://keshani-rajkaran.github.io/Keshani-Rajkaran/
 > 🔗 **LinkedIn:** [linkedin.com/in/keshani-rajkaran-0487bb1b0](https://www.linkedin.com/in/keshani-rajkaran-0487bb1b0)
 > 📩 **Email:** rajkaran.keshanir@gmail.com
 
